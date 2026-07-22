@@ -10,170 +10,97 @@
 :root { 
 --text-main: #ffffff; --text-muted: rgba(255, 255, 255, 0.70); 
 --card-bg: rgba(255, 255, 255, 0.03); --card-border: rgba(255, 255, 255, 0.1); 
---accent: #a7f3d0; --transition: all 0.3s ease; 
+--accent: #bbf7d0; --transition: all 0.3s ease; 
   }
 html { scroll-behavior: smooth; }
 * { box-sizing: border-box; margin: 0; padding: 0; text-decoration: none !important; }
 body { 
-background-color: #011a08; 
+background-color: #1a2221; 
 color: var(--text-main); font-family: 'Inter', sans-serif; 
 overflow-x: hidden; 
   }
+a, a:visited, a:hover, a:active { color: inherit; } 
+
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
 h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+
 /* NAVBAR */
-header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(1, 26, 8, 0.3); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(26, 34, 33, 0.5); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
 .nav-wrapper { display: flex; align-items: center; justify-content: space-between; height: 90px; }
 .brand img { height: 50px; }
 .nav-links { display: flex; gap: 40px; margin-left: auto; align-items: center; }
 .nav-links > a, .dropdown > a { color: var(--text-main); font-size: 13px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; transition: var(--transition); cursor: pointer; padding: 10px 0; }
 .dropdown { position: relative; display: inline-block; }
-.dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: rgba(1, 26, 8, 0.95); backdrop-filter: blur(15px); min-width: 220px; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 10px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.5); z-index: 101; }
+.dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: rgba(26, 34, 33, 0.95); backdrop-filter: blur(15px); min-width: 220px; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 10px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.5); z-index: 101; }
 .dropdown:hover .dropdown-content { display: block; }
 .dropdown-content a { color: var(--text-muted); padding: 12px 20px; display: block; font-size: 13px; font-weight: 500; transition: 0.3s; text-transform: none; letter-spacing: 0; }
 .dropdown-content a:hover { background: rgba(255,255,255,0.05); color: var(--accent); padding-left: 25px; }
 .nav-links > a:hover { color: var(--accent); }
-/* ==========================================================
-     1. HERO - YEPYENİ, ULTRA PROFESYONEL YZ/TEKNOLOJİ ALANI 
-     ========================================================== */
+
+/* MOBİL MENÜ (HAMBURGER) İÇİN CSS */
+.menu-toggle { display: none; cursor: pointer; color: var(--text-main); }
+
+/* 1. HERO - YEPYENİ, ULTRA PROFESYONEL YZ/TEKNOLOJİ ALANI */
 .hero { 
-height: 100vh; 
-display: flex; flex-direction: column; align-items: center; justify-content: center;
-position: relative;
-background-color: #000804; /* Çok derin bir siyah/yeşil zemin */
-overflow: hidden;
+height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+position: relative; background: url('cevre.png') center center / cover no-repeat; overflow: hidden;
   }
-/* Arka planda dönen modern ışıltılar (Kodla oluşturuldu) */
-.hero::before { 
-content: ''; position: absolute; width: 150vw; height: 150vw; 
-background: radial-gradient(circle at 50% 50%, rgba(0, 180, 80, 0.15), transparent 50%),
-radial-gradient(circle at 80% 20%, rgba(20, 150, 250, 0.08), transparent 40%);
-animation: rotateBg 25s linear infinite;
-z-index: 1;
-  }
-@keyframes rotateBg { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-/* İnce mühendislik grid çizgileri (Çok şık durur) */
-.hero::after {
-content: ''; position: absolute; top:0; left:0; width: 100%; height: 100%;
-background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-background-size: 50px 50px;
-z-index: 2;
-  }
-/* Ortadaki Cam Panel (Glassmorphism) */
+.hero::before { content: ''; position: absolute; top:0; left:0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(26, 34, 33, 0.2) 0%, rgba(26, 34, 33, 0.8) 100%); z-index: 1; }
+.hero::after { content: ''; position: absolute; top:0; left:0; width: 100%; height: 100%; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 50px 50px; z-index: 2; }
 .hero-content { 
 position: relative; z-index: 3; padding: 60px 40px; 
-background: rgba(1, 20, 8, 0.5); backdrop-filter: blur(20px); 
-border: 1px solid rgba(167, 243, 208, 0.15); border-radius: 30px; 
-box-shadow: 0 30px 60px rgba(0,0,0,0.8); 
-max-width: 900px; width: 90%; text-align: center;
+background: rgba(26, 34, 33, 0.4); backdrop-filter: blur(15px); 
+border: 1px solid rgba(187, 247, 208, 0.15); border-radius: 30px; 
+box-shadow: 0 30px 60px rgba(0,0,0,0.8); max-width: 900px; width: 90%; text-align: center;
   }
-/* Parlayan Degrade Başlık */
+.hero-subtitle {
+font-family: 'Inter', sans-serif; font-size: clamp(10px, 1.4vw, 16px); color: var(--accent); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px;
+}
 .hero h1 { 
-font-size: clamp(45px, 6vw, 85px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; 
+font-size: clamp(32px, 6vw, 85px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; 
 letter-spacing: 2px; text-transform: uppercase; 
-background: linear-gradient(to right, #ffffff, #a7f3d0, #ffffff);
-background-size: 200% auto;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-animation: shine 5s linear infinite;
+background: linear-gradient(to right, #ffffff, #fef08a, #ffffff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 5s linear infinite;
   }
 @keyframes shine { to { background-position: 200% center; } }
-.hero p { font-size: clamp(14px, 2vw, 18px); color: var(--accent); font-weight: 500; margin-bottom: 40px; letter-spacing: 4px; text-transform: uppercase; }
-/* Parlayan Yeni Zirve Butonu */
-.btn-hero { display: inline-block; padding: 18px 50px; background: var(--accent); color: #011a08; font-weight: 800; border-radius: 50px; text-transform: uppercase; transition: 0.3s; font-size: 15px; letter-spacing: 2px; box-shadow: 0 0 20px rgba(167, 243, 208, 0.2); }
-.btn-hero:hover { transform: translateY(-3px); box-shadow: 0 0 40px rgba(167, 243, 208, 0.5); background: #ffffff; }
-/* Zıplayan Aşağı Oku */
+.btn-hero { display: inline-block; padding: 18px 50px; background: var(--accent); color: #1a2221; font-weight: 800; border-radius: 50px; text-transform: uppercase; transition: 0.3s; font-size: 15px; letter-spacing: 2px; box-shadow: 0 0 20px rgba(187, 247, 208, 0.2); margin-top: 10px;}
+.btn-hero:hover { transform: translateY(-3px); box-shadow: 0 0 40px rgba(187, 247, 208, 0.5); background: #ffffff; }
 .scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 4; color: rgba(255,255,255,0.5); transition: 0.3s; animation: bounce 2s infinite; }
 .scroll-down:hover { color: var(--accent); }
 @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); } 40% { transform: translateY(-15px) translateX(-50%); } 60% { transform: translateY(-7px) translateX(-50%); } }
 
-/* ============ YENİ: HERO SARMAŞIK DEKORASYONU (DEVASA BOYUTLAR) ============ */
-.hero-vines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; overflow: hidden; }
-.hero-vines svg { position: absolute; }
-.vine-tl { top: -30px; left: -30px; width: clamp(250px, 35vw, 600px); height: auto; transform-origin: top left; animation: vineSway 7s ease-in-out infinite; }
-.vine-tr { top: -30px; right: -30px; width: clamp(250px, 35vw, 600px); height: auto; transform-origin: top right; animation: vineSwayR 8s ease-in-out infinite; }
-.vine-bl { bottom: -30px; left: -20px; width: clamp(200px, 30vw, 500px); height: auto; transform-origin: bottom left; animation: vineSway 9s ease-in-out infinite; }
-.vine-br { bottom: -30px; right: -20px; width: clamp(200px, 30vw, 500px); height: auto; transform-origin: bottom right; animation: vineSwayR 6.5s ease-in-out infinite; }
-@keyframes vineSway { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(1.5deg); } }
-@keyframes vineSwayR { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-1.5deg); } }
-@media (max-width: 700px) {
-  .vine-tl, .vine-tr { width: 200px; }
-  .vine-bl, .vine-br { width: 160px; }
-}
-/* ============================================================ */
-
-/* ==========================================================
-     STANDART BÖLÜMLER (AŞAĞISI TAMAMEN İSTEDİĞİN GİBİ)
-     ========================================================== */
+/* STANDART BÖLÜMLER */
 .section-main { padding: 120px 0 80px; text-align: center; }
 .section-title { font-size: 36px; font-weight: 700; margin-bottom: 30px; color: var(--text-main); }
 .about-text { font-size: 18px; color: var(--text-muted); max-width: 850px; margin: 0 auto 40px; line-height: 1.8; font-weight: 300; }
 .btn-primary { display: inline-block; padding: 16px 40px; background: transparent; border: 2px solid var(--accent); color: var(--accent); font-weight: 600; border-radius: 50px; text-transform: uppercase; transition: 0.3s; font-size: 15px; letter-spacing: 2px; }
-.btn-primary:hover { background: var(--accent); color: #011a08; transform: translateY(-3px); }
-/* YENİ: Biz Kimiz görsel alanı */
+.btn-primary:hover { background: var(--accent); color: #1a2221; transform: translateY(-3px); }
 .about-flex { display: flex; align-items: center; gap: 60px; margin-top: 30px; text-align: left; }
 .about-flex .about-text-col { flex: 1.2; }
 .about-flex .about-text-flex { text-align: left; margin: 0 0 30px 0; max-width: none; }
 .about-flex .about-img-col { flex: 1; display: flex; justify-content: center; }
-.about-img-col img {
-width: 100%; max-width: 500 px; aspect-ratio: 16/9; object-fit: cover;
-border-radius: 20px; border: 1px solid var(--card-border);
-box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-  }
-@media (max-width: 900px) {
-.about-flex { flex-direction: column; text-align: center; }
-.about-flex .about-text-flex { text-align: center; }
-  }
+.about-img-col img { width: 100%; max-width: 500px; aspect-ratio: 16/9; object-fit: cover; border-radius: 20px; border: 1px solid var(--card-border); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
 .komite-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
-.btn-komite { 
-padding: 18px 25px; background: var(--card-bg); border: 1px solid var(--card-border); 
-color: var(--text-main); font-family: 'Inter'; font-size: 16px; font-weight: 500; 
-border-radius: 12px; transition: 0.3s; width: calc(33.333% - 15px); min-width: 220px;
-  }
+.btn-komite { padding: 18px 25px; background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main); font-family: 'Inter'; font-size: 16px; font-weight: 500; border-radius: 12px; transition: 0.3s; width: calc(33.333% - 15px); min-width: 220px; }
 .btn-komite:hover { background: rgba(167, 243, 208, 0.05); border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
 .bulten-section { background: rgba(0,0,0,0.2); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); padding: 80px 0; }
 .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 50px; }
 .gallery-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; transition: 0.4s; filter: grayscale(20%); }
 .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.03); z-index: 2; position: relative; border: 1px solid var(--accent); }
-/* YENİ: Tek bir galeri kutusu içinde yana kaydırılabilir foto albümü */
-.gallery-grid .gallery-item-carousel {
-position: relative;
-aspect-ratio: 1;
-border-radius: 12px;
-overflow-x: auto;
-overflow-y: hidden;
-display: flex;
-cursor: grab;
-scroll-snap-type: x mandatory;
--webkit-overflow-scrolling: touch;
-scrollbar-width: none;
-  }
+.gallery-grid .gallery-item-carousel { position: relative; aspect-ratio: 1; border-radius: 12px; overflow-x: auto; overflow-y: hidden; display: flex; cursor: grab; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .gallery-grid .gallery-item-carousel::-webkit-scrollbar { display: none; }
-.gallery-grid .gallery-item-carousel img {
-width: 100%; height: 100%; flex: 0 0 100%;
-scroll-snap-align: start;
-border-radius: 12px;
-  }
-/* Carousel içindeki fotoğraflarda büyütme efektini kapatıyoruz, kaydırma sırasında bozulmasın */
-.gallery-grid .gallery-item-carousel img:hover {
-transform: none; border: none; z-index: auto;
-  }
-.gallery-item-carousel-dots {
-position: absolute; bottom: 8px; left: 0; width: 100%;
-display: flex; justify-content: center; gap: 5px; pointer-events: none; z-index: 3;
-  }
-.gallery-item-carousel-dots span {
-width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.4);
-  }
-.video-area { max-width: 900px; margin: 40px auto 0; aspect-ratio: 16/9; background: #050505; border-radius: 16px; border: 1px solid var(--card-border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); }
+.gallery-grid .gallery-item-carousel img { width: 100%; height: 100%; flex: 0 0 100%; scroll-snap-align: start; border-radius: 12px; }
+.gallery-grid .gallery-item-carousel img:hover { transform: none; border: none; z-index: auto; }
+.gallery-item-carousel-dots { position: absolute; bottom: 8px; left: 0; width: 100%; display: flex; justify-content: center; gap: 5px; pointer-events: none; z-index: 3; }
+.gallery-item-carousel-dots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.4); }
+.video-area { max-width: 900px; margin: 40px auto 0; aspect-ratio: 16/9; background: #050505; border-radius: 16px; border: 1px solid var(--card-border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); overflow: hidden; }
 .marquee-wrapper { width: 100%; overflow: hidden; margin-top: 40px; position: relative; }
 .marquee-track { display: flex; width: max-content; animation: scroll 45s linear infinite; gap: 60px; padding: 20px 0; }
 .marquee-track img { height: 60px; width: auto; max-width: 200px; object-fit: contain; filter: grayscale(100%) opacity(0.6); transition: 0.3s; }
 .marquee-track img:hover { filter: grayscale(0%) opacity(1); }
 @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-/* 8. SİTE HARİTASI FORMATINDA FOOTER */
-footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); background: #011105; }
+
+/* FOOTER */
+footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); background: #1a2221; }
 .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 40px; }
 .footer-col h4 { font-size: 18px; color: var(--accent); margin-bottom: 25px; font-weight: 600; letter-spacing: 1px; }
 .social-stacked { display: flex; flex-direction: column; gap: 18px; }
@@ -185,118 +112,104 @@ footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); back
 .footer-links a:hover { color: var(--text-main); transform: translateX(5px); }
 .footer-contact p { color: var(--text-muted); font-size: 14px; line-height: 1.8; margin-bottom: 10px; }
 .footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); font-size: 13px; }
+
+/* ── SADECE MOBİL İÇİN DÜZENLEMELER ── */
 @media (max-width: 900px) {
-.footer-grid { grid-template-columns: 1fr 1fr; }
-.gallery-grid { grid-template-columns: repeat(2, 1fr); }
-.btn-komite { width: 100%; }
+  /* Hamburger Menü */
+  .menu-toggle { display: block; }
+  .nav-links {
+    position: absolute; top: 90px; left: -100%; width: 100%; height: 100vh;
+    background: rgba(26, 34, 33, 0.98); backdrop-filter: blur(20px);
+    flex-direction: column; padding: 40px 0; transition: 0.4s ease;
+    align-items: center; justify-content: flex-start; gap: 20px;
   }
+  .nav-links.active { left: 0; }
+  .dropdown-content {
+    position: static; display: none; background: transparent;
+    border: none; box-shadow: none; padding: 0; text-align: center;
+  }
+  .dropdown:hover .dropdown-content { display: none; }
+  .dropdown.active .dropdown-content { display: block; margin-top: 10px; }
+  .dropdown-content a { padding: 10px; }
+
+  /* Hero Section: ODTÜ VT ve Metubiz tarzı derli toplu görünüm */
+  .hero-content { padding: 30px 20px; width: 85%; border-radius: 20px; } 
+  .hero-subtitle { font-size: 10px; letter-spacing: 1px; margin-bottom: 5px; }
+  .hero h1 { font-size: 32px; margin-bottom: 15px; } /* Başlık ve buton arası mesafe daraltıldı */
+  .btn-hero { padding: 12px 25px; font-size: 13px; margin-top: 0; } /* Buton zarifleştirildi */
+  .scroll-down { display: none; } /* Mobilde zıplayan gereksiz ok kaldırıldı */
+
+  /* Genel Yazı ve Boşluk Düzeltmeleri */
+  .section-main { padding: 60px 0 30px; }
+  .section-title { font-size: 24px; margin-bottom: 15px; } /* Başlıklar küçültüldü */
+  .about-text { font-size: 14px; margin-bottom: 20px; line-height: 1.6; } /* Paragraflar küçültüldü */
+  .btn-primary { padding: 12px 24px; font-size: 13px; }
+  .about-flex { flex-direction: column; text-align: center; gap: 30px; }
+  .about-flex .about-text-flex { text-align: center; }
+
+  /* Komiteler Düzeltmeleri */
+  .komite-buttons { gap: 10px; margin-top: 20px; }
+  .btn-komite { width: 100%; padding: 12px 15px; font-size: 15px; } 
+
+  /* İş Birlikleri (Sponsorlar) Düzeltmeleri */
+  .marquee-track { gap: 25px; padding: 10px 0; } 
+  .marquee-track img { height: 35px; max-width: 120px; } /* Logolar telefonlar için ideal boyuta getirildi */
+
+  /* Diğer Alanlar */
+  .bulten-section { padding: 50px 0; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); margin-top: 30px; }
+}
+
 @media (max-width: 600px) {
-.footer-grid { grid-template-columns: 1fr; }
-  }
+  .footer-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 20px; }
+}
 </style>
 </head>
 <body>
+<!-- NAVBAR -->
 <header>
 <div class="container nav-wrapper">
 <a href="index.html" class="brand"><img src="logo.png" alt="ÇEMÜT"></a>
+
+<div class="menu-toggle" id="mobile-menu">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</div>
+
+<nav class="nav-links">
+<a href="etkinlikler.html">Etkinlikler</a>
+<div class="dropdown">
+<a href="komiteler.html">Komiteler ▾</a>
+<div class="dropdown-content">
+<a href="komite-finans.html">Finans Komitesi</a>
+<a href="komite-proje.html">Proje Komitesi</a>
+<a href="komite-etkinlik.html">Etkinlik Komitesi</a>
+<a href="komite-iletisim.html">İletişim Komitesi</a>
+<a href="komite-bulten.html">Bülten Komitesi</a>
+<a href="komite-sosyal.html">Sosyal İlişkiler</a>
+</div>
+</div>
+<a href="bulten.html">Bülten</a>
+<a href="hakkimizda.html">Hakkımızda</a>
+<a href="ekip.html">Ekibimiz</a>
+<a href="iletisim.html">İletişim</a>
+</nav>
 </div>
 </header>
+
+<!-- 1. HERO ALANI -->
 <section class="hero">
-
-  <div class="hero-vines">
-    <svg class="vine-tl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,10 C60,30 40,90 100,100 C160,110 150,170 220,180 C270,188 260,230 300,250"
-            fill="none" stroke="#1f5c33" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
-      <path d="M0,10 C60,30 40,90 100,100 C160,110 150,170 220,180 C270,188 260,230 300,250"
-            fill="none" stroke="#3f8c54" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-      <g fill="#a7f3d0" opacity="0.85">
-        <ellipse cx="20" cy="18" rx="11" ry="6" transform="rotate(-30 20 18)"/>
-        <ellipse cx="55" cy="48" rx="10" ry="5.5" transform="rotate(20 55 48)"/>
-        <ellipse cx="38" cy="78" rx="9" ry="5" transform="rotate(-50 38 78)"/>
-        <ellipse cx="95" cy="92" rx="12" ry="6" transform="rotate(10 95 92)"/>
-        <ellipse cx="130" cy="115" rx="9" ry="5" transform="rotate(-25 130 115)"/>
-        <ellipse cx="155" cy="155" rx="11" ry="6" transform="rotate(35 155 155)"/>
-        <ellipse cx="195" cy="172" rx="9" ry="5" transform="rotate(-15 195 172)"/>
-        <ellipse cx="230" cy="195" rx="12" ry="6" transform="rotate(25 230 195)"/>
-        <ellipse cx="265" cy="225" transform="rotate(-30 265 225)"/>
-        <ellipse cx="285" cy="248" rx="9" ry="5" transform="rotate(15 285 248)"/>
-      </g>
-      <g fill="#6fbf85" opacity="0.5">
-        <ellipse cx="10" cy="35" rx="7" ry="4" transform="rotate(40 10 35)"/>
-        <ellipse cx="75" cy="68" rx="7" ry="4" transform="rotate(-20 75 68)"/>
-        <ellipse cx="115" cy="135" rx="7" ry="4" transform="rotate(30 115 135)"/>
-        <ellipse cx="175" cy="160" rx="7" ry="4" transform="rotate(-40 175 160)"/>
-        <ellipse cx="245" cy="210" rx="7" ry="4" transform="rotate(20 245 210)"/>
-      </g>
-    </svg>
-
-    <svg class="vine-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(300, 0) scale(-1, 1)">
-        <path d="M0,0 C70,25 50,80 110,95 C170,108 160,165 225,178 C265,186 255,225 300,240"
-              fill="none" stroke="#1f5c33" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
-        <path d="M0,0 C70,25 50,80 110,95 C170,108 160,165 225,178 C265,186 255,225 300,240"
-              fill="none" stroke="#3f8c54" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-        <g fill="#a7f3d0" opacity="0.85">
-          <ellipse cx="25" cy="12" rx="11" ry="6" transform="rotate(20 25 12)"/>
-          <ellipse cx="60" cy="50" rx="10" ry="5.5" transform="rotate(-25 60 50)"/>
-          <ellipse cx="100" cy="90" rx="12" ry="6" transform="rotate(15 100 90)"/>
-          <ellipse cx="140" cy="108" rx="9" ry="5" transform="rotate(-35 140 108)"/>
-          <ellipse cx="170" cy="150" rx="11" ry="6" transform="rotate(25 170 150)"/>
-          <ellipse cx="205" cy="172" rx="9" ry="5" transform="rotate(-15 205 172)"/>
-          <ellipse cx="240" cy="190" rx="12" ry="6" transform="rotate(30 240 190)"/>
-          <ellipse cx="270" cy="220" rx="10" ry="5.5" transform="rotate(-20 270 220)"/>
-          <ellipse cx="290" cy="240" rx="9" ry="5" transform="rotate(10 290 240)"/>
-        </g>
-        <g fill="#6fbf85" opacity="0.5">
-          <ellipse cx="40" cy="30" rx="7" ry="4" transform="rotate(-30 40 30)"/>
-          <ellipse cx="85" cy="70" rx="7" ry="4" transform="rotate(25 85 70)"/>
-          <ellipse cx="150" cy="130" rx="7" ry="4" transform="rotate(-20 150 130)"/>
-          <ellipse cx="220" cy="180" rx="7" ry="4" transform="rotate(35 220 180)"/>
-          <ellipse cx="260" cy="205" rx="7" ry="4" transform="rotate(-15 260 205)"/>
-        </g>
-      </g>
-    </svg>
-
-    <svg class="vine-bl" viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,220 C40,200 30,150 80,130 C130,110 120,60 180,40 C215,28 205,5 260,0"
-            fill="none" stroke="#1f5c33" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
-      <path d="M0,220 C40,200 30,150 80,130 C130,110 120,60 180,40 C215,28 205,5 260,0"
-            fill="none" stroke="#3f8c54" stroke-width="2.5" stroke-linecap="round" opacity="0.65"/>
-      <g fill="#a7f3d0" opacity="0.8">
-        <ellipse cx="15" cy="205" rx="10" ry="5.5" transform="rotate(20 15 205)"/>
-        <ellipse cx="45" cy="175" rx="9" ry="5" transform="rotate(-25 45 175)"/>
-        <ellipse cx="65" cy="140" rx="11" ry="6" transform="rotate(15 65 140)"/>
-        <ellipse cx="100" cy="115" rx="9" ry="5" transform="rotate(-30 100 115)"/>
-        <ellipse cx="130" cy="80" rx="10" ry="5.5" transform="rotate(25 130 80)"/>
-        <ellipse cx="165" cy="55" rx="9" ry="5" transform="rotate(-15 165 55)"/>
-        <ellipse cx="200" cy="30" rx="10" ry="5.5" transform="rotate(20 200 30)"/>
-        <ellipse cx="235" cy="10" rx="9" ry="5" transform="rotate(-20 235 10)"/>
-      </g>
-    </svg>
-
-    <svg class="vine-br" viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(260, 0) scale(-1, 1)">
-        <path d="M0,210 C45,195 35,145 85,125 C135,105 125,55 185,35 C218,24 208,3 260,0"
-              fill="none" stroke="#1f5c33" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
-        <path d="M0,210 C45,195 35,145 85,125 C135,105 125,55 185,35 C218,24 208,3 260,0"
-              fill="none" stroke="#3f8c54" stroke-width="2.5" stroke-linecap="round" opacity="0.65"/>
-        <g fill="#a7f3d0" opacity="0.8">
-          <ellipse cx="18" cy="195" rx="10" ry="5.5" transform="rotate(-20 18 195)"/>
-          <ellipse cx="50" cy="165" rx="9" ry="5" transform="rotate(25 50 165)"/>
-          <ellipse cx="75" cy="135" rx="11" ry="6" transform="rotate(-15 75 135)"/>
-          <ellipse cx="105" cy="110" rx="9" ry="5" transform="rotate(30 105 110)"/>
-          <ellipse cx="140" cy="78" rx="10" ry="5.5" transform="rotate(-25 140 78)"/>
-          <ellipse cx="170" cy="50" rx="9" ry="5" transform="rotate(15 170 50)"/>
-          <ellipse cx="205" cy="28" rx="10" ry="5.5" transform="rotate(-20 205 28)"/>
-          <ellipse cx="240" cy="8" rx="9" ry="5" transform="rotate(20 240 8)"/>
-        </g>
-      </g>
-    </svg>
-  </div>
-
 <div class="hero-content">
-<h1>Yenileniyoruz!</h1>
-<p>ODTÜ Çevre Mühendisliği Topluluğu web sitesi çok yakında yepyeni yüzüyle yayında.</p>
+  <p class="hero-subtitle">
+    Türkiye'nin İlk Yapay Zeka Destekli <br>Sürdürülebilirlik Zirvesi
+  </p> 
+  <h1>Çevrenin Geleceği</h1>
+  <a href="https://cevreningelecegi.com" target="_blank" class="btn-hero">Web Sitesine Git</a>
 </div>
 <a href="#hakkimizda" class="scroll-down">
 <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -304,20 +217,113 @@ footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); back
 </svg>
 </a>
 </section>
+
+<!-- 2. ODTÜ ÇEMÜT BİZ KİMİZ -->
 <section id="hakkimizda" class="section-main container">
 <h2 class="section-title">ODTÜ Çevre Mühendisliği Topluluğu</h2>
 <div class="about-flex">
 <div class="about-text-col">
 <p class="about-text about-text-flex">
-          20 Nisan’da düzenlediğimiz Türkiye’nin İlk Yapay Zeka Destekli Sürdürülebilirlik Zirvesi "Çevrenin Geleceği" hakkındaki bilgilere sitemizden erişim sağlayabilirsiniz.
+          Farklı disiplinlerden öğrenciler, yaratıcı projeler, geniş kapsamlı etkinlikler, sosyal sorumluluk, kariyer fırsatları ve çok daha fazlası... Akademik bilginin pratikle buluştuğu ve sürdürülebilir inovasyonun şekillendiği ekosistemimize katılın.
 </p>
-<a href="https://cevreningelecegi.com" target="_blank" class="btn-hero">Web Sitesine Git</a>
+<a href="hakkimizda.html" class="btn-primary">Biz Kimiz?</a>
 </div>
 <div class="about-img-col">
 <img src="zirve.jpg" alt="ODTÜ ÇEMÜT">
 </div>
 </div>
 </section>
+
+<!-- 3. KOMİTELERİMİZ -->
+<section class="section-main container">
+<h2 class="section-title">Komitelerimiz</h2>
+<div class="komite-buttons">
+<a href="komite-finans.html" class="btn-komite">Finans Komitesi</a>
+<a href="komite-proje.html" class="btn-komite">Proje Komitesi</a>
+<a href="komite-etkinlik.html" class="btn-komite">Etkinlik Komitesi</a>
+<a href="komite-iletisim.html" class="btn-komite">İletişim Komitesi</a>
+<a href="komite-bulten.html" class="btn-komite">Bülten Komitesi</a>
+<a href="komite-sosyal.html" class="btn-komite">Sosyal İlişkiler</a>
+</div>
+</section>
+
+<!-- 4. TOPLULUK BÜLTENİ -->
+<section class="section-main bulten-section">
+<div class="container">
+<h2 class="section-title">Topluluk Bültenimiz</h2>
+<a href="bulten.html" class="btn-primary">Bültene Git</a>
+</div>
+</section>
+
+<!-- 5. ETKİNLİKLERİMİZ -->
+<section class="section-main container">
+<h2 class="section-title">Etkinliklerimiz</h2>
+<div class="gallery-grid">
+<div class="gallery-item-carousel">
+<img src="BASKI.png" alt="Çevrenin Geleceği Afişi">
+<img src="zirve.jpg" alt="Çevrenin Geleceği Etkinlik Foto 2">
+<img src="BASKI-foto3.png" alt="Çevrenin Geleceği Etkinlik Foto 3">
+<div class="gallery-item-carousel-dots"><span></span><span></span><span></span></div>
+</div>
+<img src="konusmalar.jpg" alt="Etkinlik 2">
+<img src="studywithme.jpg" alt="Etkinlik 3">
+<img src="yılbası.jpg" alt="Etkinlik 4">
+<img src="enves.jpg" alt="Etkinlik 5">
+<img src="bodymist.jpg" alt="Etkinlik 6">
+<img src="seramik.jpeg" alt="Etkinlik 7">
+<img src="cemut.jpeg" alt="Etkinlik 8">
+</div>
+</section>
+
+<!-- 6. YOUTUBE'DA BİZ -->
+<section class="section-main container">
+<h2 class="section-title">Youtube'da Biz</h2>
+<div class="video-area">
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/zx04Kl8y4dE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 16px;"></iframe>
+</div>
+</section>
+
+<!-- 7. İŞ BİRLİKLERİMİZ -->
+<section class="section-main" style="padding-bottom: 120px;">
+<h2 class="section-title">İş Birliklerimiz</h2>
+<div class="marquee-wrapper">
+<div class="marquee-track">
+<img src="algofact.png" alt="Sponsor 1">
+<img src="mercedes.png" alt="Sponsor 2">
+<img src="tskb.png" alt="Sponsor 3">
+<img src="pwc.jpg" alt="Sponsor 4">
+<img src="ozonext.png" alt="Sponsor 5">
+<img src="kıvanc.jpg" alt="Sponsor 6">
+<img src="pladis.png" alt="Sponsor 7">
+<img src="davinci.png" alt="Sponsor 8">
+<img src="gama.jpg" alt="Sponsor 9">
+<img src="qsi.png" alt="Sponsor 10">
+<img src="blueit.png" alt="Sponsor 11">
+<img src="anadolu.jpg" alt="Sponsor 12">
+<img src="3i.png" alt="Sponsor 13">
+<img src="sust.jpg" alt="Sponsor 14">
+<img src="et.jpg" alt="Sponsor 15">
+<!-- Tekrarı -->
+<img src="algofact.png" alt="Sponsor 1">
+<img src="mercedes.png" alt="Sponsor 2">
+<img src="tskb.png" alt="Sponsor 3">
+<img src="pwc.jpg" alt="Sponsor 4">
+<img src="ozonext.png" alt="Sponsor 5">
+<img src="kıvanc.jpg" alt="Sponsor 6">
+<img src="pladis.png" alt="Sponsor 7">
+<img src="davinci.png" alt="Sponsor 8">
+<img src="gama.jpg" alt="Sponsor 9">
+<img src="qsi.png" alt="Sponsor 10">
+<img src="blueit.png" alt="Sponsor 11">
+<img src="anadolu.jpg" alt="Sponsor 12">
+<img src="3i.png" alt="Sponsor 13">
+<img src="sust.jpg" alt="Sponsor 14">
+<img src="et.jpg" alt="Sponsor 15">
+</div>
+</div>
+</section>
+
+<!-- 8. FOOTER -->
 <footer>
 <div class="container footer-grid">
 <div class="footer-col">
@@ -327,21 +333,41 @@ footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); back
 <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm3.98-10.822a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
             Instagram
 </a>
-<a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://x.com/METU_ODTU%3Flang%3Den&ved=2ahUKEwjuiMD366-VAxWoVPEDHepQA8kQFnoECCcQAQ&usg=AOvVaw1un6aKTeWhn3_j2R-YAd9q" target="_blank">
+<a href="#" target="_blank">
 <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             X (Twitter)
 </a>
-<a href="https://linkedin.com/company/metu-environmental-engineering-society" target="_blank">
+<a href="#" target="_blank">
 <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
 </a>
-<a href="https://www.tiktok.com/@odtucemut" target="_blank">
+<a href="#" target="_blank">
 <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.01.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.2-.15 2.39-.52 3.54-.85 2.14-2.65 3.81-4.85 4.3-.49.1-1.02.16-1.56.16-1.5 0-2.9-.38-4.13-1.07-1.74-1-2.98-2.61-3.46-4.57-.2-.8-.26-1.65-.13-2.48.24-1.5.95-2.87 2.06-3.85 1.11-.98 2.52-1.57 4.02-1.68.22-.01.44-.02.66-.02v4.06c-.16 0-.32 0-.48.02-.68.04-1.34.34-1.84.8-.5.45-.81 1.05-.9 1.7-.1.74.05 1.51.44 2.15.54.89 1.5 1.48 2.56 1.54 1.05.06 2.06-.39 2.72-1.18.66-.78 1.02-1.8 1.02-2.86V.02z"/></svg>
             TikTok
 </a>
 </div>
 </div>
-
+<div class="footer-col">
+<h4>ODTÜ ÇEMÜT</h4>
+<div class="footer-links">
+<a href="hakkimizda.html">Hakkımızda</a>
+<a href="ekip.html">Yönetim Kurulu</a>
+<a href="etkinlikler.html">Etkinliklerimiz</a>
+<a href="bulten.html">Bülten</a>
+<a href="isbirlikleri.html">İş Birlikleri</a>
+</div>
+</div>
+<div class="footer-col">
+<h4>Komitelerimiz</h4>
+<div class="footer-links">
+<a href="komite-finans.html">Finans Komitesi</a>
+<a href="komite-proje.html">Proje Komitesi</a>
+<a href="komite-etkinlik.html">Etkinlik Komitesi</a>
+<a href="komite-iletisim.html">İletişim Komitesi</a>
+<a href="komite-bulten.html">Bülten Komitesi</a>
+<a href="komite-sosyal.html">Sosyal İlişkiler</a>
+</div>
+</div>
 <div class="footer-col footer-contact">
 <h4>İletişim</h4>
 <p style="color: var(--text-main); font-weight: 500; margin-bottom: 2px;">E-Posta:</p>
@@ -354,8 +380,20 @@ footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); back
 <p>© 2026 ODTÜ Çevre Mühendisliği Topluluğu. Tüm hakları saklıdır.</p>
 </div>
 </footer>
+
 <script>
-// Galeri içindeki yana kaydırılabilir albümlerde masaüstünde mouse ile de sürükleyerek kaydırma desteği
+document.getElementById('mobile-menu').addEventListener('click', function() {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+
+const dropdown = document.querySelector('.dropdown > a');
+dropdown.addEventListener('click', function(e) {
+  if(window.innerWidth <= 900) {
+    e.preventDefault(); 
+    this.parentElement.classList.toggle('active');
+  }
+});
+
 document.querySelectorAll('.gallery-item-carousel').forEach(function (carousel) {
 let isDown = false, startX, scrollLeft;
 carousel.addEventListener('mousedown', function (e) {

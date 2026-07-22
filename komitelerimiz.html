@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komitelerimiz | ÇEMÜT</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ETKİNLİKLER SAYFASINDAKİ CSS'İN BİREBİR AYNISI */
+  :root { --text-main: #ffffff; --text-muted: rgba(255, 255, 255, 0.75); --card-bg: rgba(255, 255, 255, 0.05); --card-border: rgba(255, 255, 255, 0.15); --card-hover: rgba(255, 255, 255, 0.1); --accent: #a7f3d0; --max-width: 1280px; --transition: all 0.3s ease; }
+  ::selection { background: var(--accent); color: #000; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background-color: #01200b; background-image: radial-gradient(circle at 100% 0%, rgba(0, 180, 50, 0.4) 0%, transparent 60%), radial-gradient(circle at 0% 100%, rgba(2, 60, 15, 0.8) 0%, transparent 60%), linear-gradient(135deg, #011a08 0%, #036b1e 100%); background-attachment: fixed; color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 40px; }
+  h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+  /* NAVBAR & DROPDOWN */
+  header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; background: rgba(1, 26, 8, 0.6); backdrop-filter: blur(16px); border-bottom: 1px solid var(--card-border); }
+  .nav-wrapper { display: flex; align-items: center; justify-content: space-between; height: 85px; }
+  .brand img { height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links > a, .dropdown > a { font-size: 14px; font-weight: 500; color: var(--text-muted); position: relative; padding: 8px 0; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; }
+  .nav-links > a:hover, .dropdown > a:hover, .nav-links > a.active { color: var(--text-main); }
+  .dropdown { position: relative; display: inline-block; }
+  .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: rgba(1, 26, 8, 0.95); backdrop-filter: blur(20px); min-width: 200px; border: 1px solid var(--card-border); border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); padding: 10px 0; z-index: 101; transform: translateY(10px); opacity: 0; transition: var(--transition); }
+  .dropdown:hover .dropdown-content { display: block; transform: translateY(0); opacity: 1; }
+  .dropdown-content a { color: var(--text-muted); padding: 12px 20px; display: block; font-size: 14px; font-weight: 500; transition: 0.2s; }
+  .dropdown-content a:hover { background: var(--card-hover); color: var(--accent); padding-left: 25px; }
+
+  /* SAYFA YAPI */
+  .page-header { padding: 180px 0 80px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .page-header h1 { font-size: clamp(40px, 5vw, 60px); text-transform: uppercase; margin-bottom: 20px; text-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+  .page-header p { font-size: 18px; color: var(--text-muted); max-width: 800px; margin: 0 auto; }
+
+  /* KOMİTE GRID TASARIMI */
+  .committees-wrap { padding: 80px 0 120px; }
+  .committees-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .committee-card {
+    background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px;
+    padding: 40px; backdrop-filter: blur(10px); transition: var(--transition);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .committee-card:hover { transform: translateY(-8px); border-color: var(--accent); background: var(--card-hover); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+  .committee-card h2 { font-size: 28px; margin-bottom: 16px; color: var(--text-main); }
+  .committee-card p { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px;}
+  .committee-btn { 
+    align-self: flex-start; display: inline-block; padding: 10px 20px; 
+    border: 1px solid var(--accent); color: var(--accent); border-radius: 6px; 
+    font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .committee-card:hover .committee-btn { background: var(--accent); color: #01200b; }
+
+  /* FOOTER */
+  footer { background: rgba(0,0,0,0.4); padding: 80px 0 40px; border-top: 1px solid var(--card-border); }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-col h4 { font-size: 20px; margin-bottom: 24px; color: var(--accent); }
+  .footer-col p { color: var(--text-muted); font-size: 15px; margin-bottom: 12px; }
+  .social-links { display: flex; flex-direction: column; gap: 12px; }
+  .social-links a { color: var(--text-muted); font-size: 15px; display: flex; align-items: center; gap: 10px;}
+  .social-links a:hover { color: var(--accent); transform: translateX(5px); }
+  .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 14px; }
+
+  @media (max-width: 900px) { .nav-links { display: none; } .committees-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .social-links { align-items: center; } }
+</style>
+</head>
+<body>
+
+  <!-- YENİ NAVBAR -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="ÇEMÜT Logo">
+      </a>
+      <nav class="nav-links">
+        <a href="etkinlikler.html">Etkinliklerimiz</a>
+        <div class="dropdown">
+          <a href="komiteler.html" class="active">Komitelerimiz ▾</a>
+          <div class="dropdown-content">
+            <a href="komite-finans.html">Finans Komitesi</a>
+            <a href="komite-etkinlik.html">Etkinlik Komitesi</a>
+            <a href="komite-bulten.html">Bülten Komitesi</a>
+            <a href="komite-sosyal.html">Sosyal İlişkiler Komitesi</a>
+            <a href="komite-iletisim.html">İletişim Komitesi</a>
+            <a href="komite-proje.html">Proje Komitesi</a>
+          </div>
+        </div>
+        <a href="bulten.html">Bülten</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="ekip.html">Ekibimiz</a>
+        <a href="isbirlikleri.html">İş Birliklerimiz</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Çalışma Komiteleri</h1>
+      <p>ODTÜ Çevre Mühendisliği Topluluğu'nun işleyişini, operasyonel gücünü ve projelerini hayata geçiren profesyonel alt birimlerimiz.</p>
+    </div>
+  </div>
+
+  <section class="committees-wrap">
+    <div class="container">
+      <div class="committees-grid">
+        
+        <div class="committee-card">
+          <div>
+            <h2>Finans Komitesi</h2>
+            <p>Topluluğun kasasıdır. Bütçeyi yönetir, kurumsal sponsorluk dosyalarını hazırlayıp şirketlerle görüşmeler yürütür ve etkinlikler için maddi/ayni kaynak yaratır.</p>
+          </div>
+          <a href="komite-finans.html" class="committee-btn">Sayfaya Git →</a>
+        </div>
+
+        <div class="committee-card">
+          <div>
+            <h2>Etkinlik Komitesi</h2>
+            <p>Topluluğun sosyal kalbidir. Oryantasyon stantlarından tanışma partilerine, workshoplardan kaynaşma kamplarına kadar ekip içi aidiyeti ve motivasyonu sağlayan operasyon birimidir.</p>
+          </div>
+          <a href="komite-etkinlik.html" class="committee-btn">Sayfaya Git →</a>
+        </div>
+
+        <div class="committee-card">
+          <div>
+            <h2>Bülten Komitesi</h2>
+            <p>Topluluğun entelektüel hafızasıdır. Çevre mühendisliği, sürdürülebilirlik ve sektördeki güncel gelişmeleri derleyerek dijital veya basılı yayınların editörlük ve içerik süreçlerini yönetir.</p>
+          </div>
+          <a href="komite-bulten.html" class="committee-btn">Sayfaya Git →</a>
+        </div>
+
+        <div class="committee-card">
+          <div>
+            <h2>Sosyal İlişkiler Komitesi</h2>
+            <p>(Sosyal Medya, Bilişim ve Tasarım): ODTÜ ÇEMÜT'ün dijital vitrinidir. Kurumsal görsel kimliği korur, sosyal medya hesaplarını stratejik olarak yönetir ve tüm organizasyonların tasarım/video işlerini üstlenir.</p>
+          </div>
+          <a href="komite-sosyal.html" class="committee-btn">Sayfaya Git →</a>
+        </div>
+
+        <div class="committee-card">
+          <div>
+            <h2>İletişim Komitesi</h2>
+            <p>Topluluğun dışa açılan yüzüdür. Mezun ağı (alumni) yönetiminden, akademisyen ve şirket yöneticileriyle olan kurumsal yazışmalara kadar tüm dış paydaş ilişkilerini koordine eder.</p>
+          </div>
+          <a href="komite-iletisim.html" class="committee-btn">Sayfaya Git →</a>
+        </div>
+
+        <div class="committee-card">
+          <div>
+            <h2>Proje Komitesi</h2>
+            <p>Topluluğun mühendislik ve inovasyon merkezidir. Amiral gemisi zirveleri, şirket partnerli Vaka Analizi (Case Study) yarışmalarını ve sektörü sahada tanımayı sağlayan teknik gezileri kurgular.</p>
+          </div>
+          <a href="komite-proje.html" class="committee-btn">Sayfaya Git →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- YENİ FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>ÇEMÜT</h4>
+          <p>ODTÜ Çevre Mühendisliği Topluluğu (ÇEMÜT), çevre bilincini yaymayı, sürdürülebilirlik odaklı etkinlikler ve projelerle farkındalık yaratmayı amaçlayan bir öğrenci topluluğudur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Hızlı Bağlantılar</h4>
+          <div class="social-links">
+            <a href="https://cevreningelecegi.com" target="_blank">Çevrenin Geleceği Zirvesi</a>
+            <a href="komiteler.html">Çalışma Komitelerimiz</a>
+            <a href="bulten.html">Topluluk Bülteni</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Sosyal Medya</h4>
+          <div class="social-links">
+            <a href="#" target="_blank"><span>Instagram:</span> @odtucemut</a>
+            <a href="#" target="_blank"><span>LinkedIn:</span> METU Environmental Engineering Society</a>
+            <a href="#" target="_blank"><span>TikTok:</span> @odtucemut</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ODTÜ Çevre Mühendisliği Topluluğu. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

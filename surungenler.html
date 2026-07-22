@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sürüngenler Neden Kayboluyor? | ÇEMÜT Bülten</title>
+<link rel="icon" href="logo.png?v=2" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.70);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --accent: #bbf7d0;
+  --transition: all 0.3s ease;
+}
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; margin: 0; padding: 0; text-decoration: none !important; }
+body {
+  background-color: #1a2221;
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
+h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+
+/* NAVBAR */
+header {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: rgba(26, 34, 33, 0.5); backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-wrapper { display: flex; align-items: center; justify-content: space-between; height: 90px; }
+.brand img { height: 50px; }
+.nav-links { display: flex; gap: 40px; margin-left: auto; align-items: center; }
+.nav-links > a, .dropdown > a {
+  color: var(--text-main); font-size: 13px; text-transform: uppercase;
+  font-weight: 600; letter-spacing: 0.1em; transition: var(--transition);
+  cursor: pointer; padding: 10px 0;
+}
+.nav-links > a:hover, .nav-links > a.active { color: var(--accent); }
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content {
+  display: none; position: absolute; top: 100%; left: 0;
+  background: rgba(26, 34, 33, 0.95); backdrop-filter: blur(15px);
+  min-width: 220px; border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px; padding: 10px 0;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5); z-index: 101;
+}
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content a {
+  color: var(--text-muted); padding: 12px 20px; display: block;
+  font-size: 13px; font-weight: 500; transition: 0.3s;
+  text-transform: none; letter-spacing: 0;
+}
+.dropdown-content a:hover { background: rgba(255,255,255,0.05); color: var(--accent); padding-left: 25px; }
+.dropdown > a:hover { color: var(--accent); }
+
+/* YAZI ÜST KISMI */
+.post-hero { padding: 170px 0 40px; max-width: 800px !important; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--text-muted); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  margin-bottom: 30px; transition: 0.25s;
+}
+.back-link:hover { color: var(--accent); transform: translateX(-4px); }
+.blog-tag {
+  display: inline-block; background: rgba(187, 247, 208, 0.1); color: var(--accent);
+  border: 1px solid rgba(187, 247, 208, 0.3);
+  padding: 5px 14px; border-radius: 50px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 22px;
+}
+.post-hero h1 {
+  font-size: clamp(32px, 4.5vw, 52px); font-weight: 800; line-height: 1.15;
+  margin-bottom: 30px; color: var(--text-main);
+}
+.post-meta { display: flex; align-items: center; gap: 15px; }
+.author-avatar {
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  background: var(--accent); color: #1a2221;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-family: 'Outfit', sans-serif; font-size: 16px;
+}
+.author-text h4 { font-size: 15px; margin-bottom: 3px; color: var(--text-main); }
+.author-text span { font-size: 13px; color: var(--text-muted); font-family: 'Inter', sans-serif; }
+
+/* KAPAK GÖRSELİ */
+.post-cover { max-width: 1000px !important; margin-bottom: 60px; }
+.post-cover img {
+  width: 100%; max-height: 520px; object-fit: cover;
+  border-radius: 20px; border: 1px solid var(--card-border);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4); display: block;
+}
+
+/* YAZI GÖVDESİ */
+.post-body { max-width: 760px !important; padding-bottom: 40px; }
+.post-body p { font-size: 18px; line-height: 1.9; color: var(--text-muted); margin-bottom: 26px; font-weight: 400; }
+.post-body h2 { font-size: 26px; font-weight: 700; color: var(--text-main); margin: 46px 0 18px; }
+.post-body blockquote {
+  border-left: 3px solid var(--accent); background: var(--card-bg);
+  padding: 26px 32px; border-radius: 0 16px 16px 0;
+  font-family: 'Outfit', sans-serif; font-size: 21px; font-weight: 500;
+  color: var(--text-main); line-height: 1.6; margin: 40px 0;
+}
+.post-body figure { margin: 40px 0; }
+.post-body figure img { width: 100%; border-radius: 16px; border: 1px solid var(--card-border); }
+.post-body figcaption { font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 12px; font-style: italic; }
+
+/* YAZAR KUTUSU */
+.post-author-box {
+  max-width: 760px !important; display: flex; align-items: center; gap: 22px;
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 20px; padding: 32px; margin-bottom: 50px;
+}
+.post-author-box .author-avatar { width: 64px; height: 64px; font-size: 22px; }
+.post-author-box h4 { font-size: 17px; color: var(--text-main); margin-bottom: 4px; }
+.post-author-box p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+/* ALT NAVİGASYON */
+.post-nav { max-width: 760px !important; padding-bottom: 100px; display: flex; justify-content: center; }
+.btn-back-all {
+  display: inline-block; padding: 14px 36px; background: transparent;
+  border: 2px solid var(--accent); color: var(--accent);
+  font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 50px; transition: 0.3s;
+}
+.btn-back-all:hover { background: var(--accent); color: #1a2221; transform: translateY(-2px); }
+
+/* FOOTER */
+footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); background: #1a2221; }
+.footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 40px; }
+.footer-col h4 { font-size: 18px; color: var(--accent); margin-bottom: 25px; font-weight: 600; letter-spacing: 1px; }
+.social-stacked { display: flex; flex-direction: column; gap: 18px; }
+.social-stacked a { display: flex; align-items: center; gap: 12px; color: var(--text-muted); transition: 0.3s; font-size: 15px; font-weight: 500; }
+.social-stacked a:hover { color: var(--text-main); transform: translateX(5px); }
+.social-stacked svg { width: 22px; height: 22px; fill: currentColor; }
+.footer-links { display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { color: var(--text-muted); transition: 0.3s; font-size: 15px; }
+.footer-links a:hover { color: var(--text-main); transform: translateX(5px); }
+.footer-contact p { color: var(--text-muted); font-size: 14px; line-height: 1.8; margin-bottom: 10px; }
+.footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); font-size: 13px; }
+
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 20px; }
+  .post-author-box { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-wrapper">
+    <a href="index.html" class="brand"><img src="logo.png" alt="ÇEMÜT"></a>
+    <nav class="nav-links">
+      <a href="etkinlikler.html">Etkinlikler</a>
+      <div class="dropdown">
+        <a href="komiteler.html">Komiteler ▾</a>
+        <div class="dropdown-content">
+          <a href="komite-finans.html">Finans Komitesi</a>
+          <a href="komite-proje.html">Proje Komitesi</a>
+          <a href="komite-etkinlik.html">Etkinlik Komitesi</a>
+          <a href="komite-iletisim.html">İletişim Komitesi</a>
+          <a href="komite-bulten.html">Bülten Komitesi</a>
+          <a href="komite-sosyal.html">Sosyal İlişkiler</a>
+        </div>
+      </div>
+      <a href="bulten.html" class="active">Bülten</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="ekip.html">Ekibimiz</a>
+      <a href="iletisim.html">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container post-hero">
+  <a href="bulten.html" class="back-link">← Bültene Dön</a>
+  <span class="blog-tag">Sektörel</span>
+  <h1>Sürüngenler Neden Kayboluyor?</h1>
+  <div class="post-meta">
+    <div class="author-avatar">BY</div>
+    <div class="author-text">
+      <h4>Bartu Yıldırım</h4>
+      <span>18 Mart 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="container post-cover">
+  <img src="Bülten-2.png" alt="Sürüngenler Neden Kayboluyor" onerror="this.style.display='none'">
+</div>
+
+<div class="container post-body">
+
+  <p>Sürüngenler; dünyanın farklı bölgelerinde karasal, tatlı su ve tuzlu su ekosistemlerinde yaşayabilen, besin zincirlerinin ve ekosistemlerin önemli parçaları olan büyük bir canlı sınıfıdır. Buna rağmen uzun yıllar boyunca memeliler, kuşlar ve balıklar kadar ilgi görmemiş; bilimsel çalışmalar açısından görece geri planda kalmışlardır. Son yıllarda sürüngenlerin ekosistemlerdeki rolleri daha iyi anlaşılmaya başlanmıştır. Ancak dünyada meydana gelen hızlı çevresel ve insan kaynaklı değişimler, sürüngenleri ciddi biçimde etkilemiş ve birçok türün popülasyonunda büyük düşüşlere yol açmıştır.</p>
+
+  <p>Günümüzde sürüngenlerin karşı karşıya kaldığı tehditlerin büyük bölümü insan kaynaklı etkilerdir. Bu tehditler arasında habitat kaybı ve tahribatı, istilacı türler, hastalıklar ve kirlilik ile iklim değişikliği yer almaktadır.</p>
+
+  <h2>Yaşam Alanlarının Yok Edilmesi</h2>
+  <p>Sürüngenlerin karşılaştığı en temel problemlerden biri yaşam alanlarının yok edilmesidir. Altyapı çalışmaları, şehirleşme, tarım alanlarının genişlemesi ve madencilik faaliyetleri; sürüngenlerin barınma, beslenme ve üreme alanlarını doğrudan tahrip etmektedir. Doğal yaşam alanlarının parçalanması, bu canlıların temel ihtiyaçlarına erişimini zorlaştırmakta ve ölümlere neden olmaktadır.</p>
+
+  <h2>İstilacı Türler</h2>
+  <p>Sürüngen popülasyonlarını azaltan bir diğer önemli faktör istilacı türlerdir. Küresel ulaşım ve ticaretin artmasıyla birlikte, bazı canlı türleri doğal yaşam alanları dışına taşınmış ve yeni ekosistemlere girmiştir. Bu durum, yerel türlerin daha önce hiç karşılaşmadıkları avcılarla karşılaşmasına yol açmıştır. Mangustlar bu istilacı türlere önemli bir örnektir. Bu cins; Hawaii, Karayipler, Doğu Afrika ve Hindistan gibi bölgelerde sürüngen popülasyonları üzerinde ciddi bir baskı oluşturmuştur. Bu küçük memeliler, yavru veya henüz yumurtadan çıkmamış sürüngenleri dahi avlayabilmektedir. Yüksek uyum yetenekleri, geniş besin tercihleri ve bazı türlerinin yılan zehrine karşı bağışıklığı olması, mangustları özellikle tehlikeli hâle getirmiştir. Başlangıçta insanlar tarafından farklı türleri kontrol etmek amacıyla doğaya bırakılan bu canlılar, zamanla ekosistem için büyük bir tehdit hâline gelmiştir. Günümüzde tekrar kontrol altına alınmaya çalışılmaktadır.</p>
+
+  <h2>Hastalıklar</h2>
+  <p>Hastalıklar da sürüngenler için giderek artan bir risk oluşturmaktadır. Saha çalışmalarında yeterli hijyen önlemlerinin alınmaması durumunda, insanlara zarar vermeyen ancak sürüngenler ve amfibiler için ölümcül olabilen ranavirüs gibi patojenler sürüngenlere bulaşabilmektedir. Bu tür hastalıklar kısa sürede yayılabilmekte ve ani ölümlerle tüm bir popülasyonu yok edebilmektedir.</p>
+
+  <h2>Çevre Kirliliği</h2>
+  <p>Sürüngenler üzerinde uzun vadeli ve birikici etkiler yaratan önemli bir tehdit de çevre kirliliğidir. İnsan faaliyetleri sonucu ortaya çıkan ağır metaller, pestisitler, herbisitler ve endüstriyel atıklar besin zinciri yoluyla sürüngenlerin vücutlarında birikmektedir. Özellikle avcı konumundaki sürüngenler bu durumdan daha fazla etkilenmekte, bağışıklık sistemleri zayıflamakta ve üreme başarıları düşmektedir.</p>
+
+  <h2>İklim Değişikliği</h2>
+  <p>İklim değişikliği ise sürüngenleri etkileyen en kapsamlı çevresel tehditlerden biridir. Soğukkanlı canlılar olmaları nedeniyle çevre sıcaklığı sürüngenlerin yaşamında hayati bir role sahiptir. Küresel ısınmaya bağlı sıcaklık artışları; enerji kaybı, üreme problemleri ve ölümlere yol açmaktadır. Ayrıca sıcaklığa bağlı cinsiyet belirlenimi gösteren türlerde, ortalama sıcaklığın yalnızca 1–2 °C değişmesi bile cinsiyet oranlarının bozulmasına ve popülasyonların sürdürülebilirliğinin tehlikeye girmesine neden olmaktadır. Kertenkele ve yılan gibi birçok sürüngen türü bu durumdan ötürü tükenme tehlikesiyle yüz yüzedir.</p>
+
+  <h2>Çevre Mühendisliğinin Rolü</h2>
+  <p>Sürüngenlerin karşı karşıya kaldığı bu tehditlerin azaltılmasında birçok alanda olduğu gibi çevre mühendisliği de önemli bir rol üstlenmektedir. Çevre mühendislerinin uğraşı olan atık yönetimi sistemlerinin geliştirilmesi, endüstriyel ve tarımsal kirliliğin kontrol altına alınması, su ve toprak kalitesinin izlenmesi; sürüngenlerin maruz kaldığı toksik maddelerin azaltılmasına katkı sağlayabilir. Bununla birlikte çevresel etki değerlendirme süreçlerinin daha etkin uygulanması, altyapı ve inşaat projelerinin doğal yaşam alanlarına vereceği zararları en aza indirebilir. Çevre mühendislerinin ekosistem temelli çözümler geliştirmesi, biyolojik çeşitliliğin korunmasında ve sürdürülebilirliğinde büyük bir öneme sahiptir.</p>
+
+  <p>Ayrıca, çevre kirliliği ve iklim değişikliğinin temel nedenlerinden biri olan sera gazı salınımlarının azaltılması da sürüngenlerin korunması açısından önem taşımaktadır. Bilinçlendirme çalışmalarının artırılması, yenilenebilir enerji kaynaklarının yaygınlaştırılması, enerji verimliliğini artıran mühendislik uygulamalarının geliştirilmesi ve karbon salımını azaltmaya yönelik teknolojilerin kullanılması; küresel iklim değişikliğinin sınırlandırılmasına katkı sağlayabilir. Bu tür uygulamalar, sıcaklığa duyarlı olan sürüngen türlerinin yaşam koşullarının korunmasına ve iklim değişikliğinin ekosistemler üzerindeki olumsuz etkilerinin azaltılmasına yardımcı olabilir. Çevre mühendisliği çalışmaları sayesinde bahsedilen olumsuzlukların azaltılması, çevrenin ve tüm canlıların yararına olacak; insanlara ve doğaya daha güzel ve yaşanabilir bir gelecek sunacaktır.</p>
+
+</div>
+
+<div class="container post-author-box">
+  <div class="author-avatar">BY</div>
+  <div>
+    <h4>Bartu Yıldırım</h4>
+    <p>Envision Dergisi Yazarı</p>
+  </div>
+</div>
+
+<div class="container post-nav">
+  <a href="bulten.html" class="btn-back-all">Tüm Yazılara Dön</a>
+</div>
+
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h4>Sosyal Medya</h4>
+      <div class="social-stacked">
+        <a href="https://instagram.com/odtucemut" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm3.98-10.822a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+          Instagram
+        </a>
+        <a href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X (Twitter)
+        </a>
+        <a href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.01.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.2-.15 2.39-.52 3.54-.85 2.14-2.65 3.81-4.85 4.3-.49.1-1.02.16-1.56.16-1.5 0-2.9-.38-4.13-1.07-1.74-1-2.98-2.61-3.46-4.57-.2-.8-.26-1.65-.13-2.48.24-1.5.95-2.87 2.06-3.85 1.11-.98 2.52-1.57 4.02-1.68.22-.01.44-.02.66-.02v4.06c-.16 0-.32 0-.48.02-.68.04-1.34.34-1.84.8-.5.45-.81 1.05-.9 1.7-.1.74.05 1.51.44 2.15.54.89 1.5 1.48 2.56 1.54 1.05.06 2.06-.39 2.72-1.18.66-.78 1.02-1.8 1.02-2.86V.02z"/></svg>
+          TikTok
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>ODTÜ ÇEMÜT</h4>
+      <div class="footer-links">
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="ekip.html">Yönetim Kurulu</a>
+        <a href="etkinlikler.html">Etkinliklerimiz</a>
+        <a href="bulten.html">Bülten</a>
+        <a href="isbirlikleri.html">İş Birlikleri</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Komitelerimiz</h4>
+      <div class="footer-links">
+        <a href="komite-finans.html">Finans Komitesi</a>
+        <a href="komite-proje.html">Proje Komitesi</a>
+        <a href="komite-etkinlik.html">Etkinlik Komitesi</a>
+        <a href="komite-iletisim.html">İletişim Komitesi</a>
+        <a href="komite-bulten.html">Bülten Komitesi</a>
+        <a href="komite-sosyal.html">Sosyal İlişkiler</a>
+      </div>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4>İletişim</h4>
+      <p style="color: var(--text-main); font-weight: 500; margin-bottom: 2px;">E-Posta:</p>
+      <p style="margin-bottom: 15px;">cemut@metu.edu.tr</p>
+      <p style="color: var(--text-main); font-weight: 500; margin-bottom: 2px;">Adres:</p>
+      <p>ODTÜ Çevre Mühendisliği Bölümü<br>Zemin Kat, Çankaya / Ankara</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 ODTÜ Çevre Mühendisliği Topluluğu. Tüm hakları saklıdır.</p>
+  </div>
+</footer>
+
+</body>
+</html>
