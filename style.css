@@ -1,0 +1,181 @@
+/* ============================================
+   ODTÜ ÇEMÜT — Ortak Stiller
+   Tüm sayfalarda paylaşılan temel görünüm:
+   değişkenler, navbar, mobil menü, footer.
+   Sayfaya özel stiller kendi HTML'inde kalır.
+   ============================================ */
+
+:root {
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.70);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --accent: #bbf7d0;
+  --transition: all 0.3s ease;
+  --nav-height: 90px;
+}
+
+html { scroll-behavior: smooth; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; text-decoration: none !important; }
+
+body {
+  background-color: #1a2221;
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+a, a:visited, a:hover, a:active { color: inherit; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
+
+h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+
+img { max-width: 100%; }
+
+/* ── NAVBAR ── */
+header {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: rgba(26, 34, 33, 0.5); backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-wrapper { display: flex; align-items: center; justify-content: space-between; height: var(--nav-height); }
+/* Logo: ana kimliğimiz — belirgin dursun diye büyütüldü ve hafif parlatıldı */
+.brand { display: flex; align-items: center; }
+.brand img {
+  height: 66px; width: auto; display: block;
+  filter: drop-shadow(0 2px 10px rgba(187, 247, 208, 0.35));
+  transition: var(--transition);
+}
+.brand:hover img { transform: scale(1.05); filter: drop-shadow(0 2px 16px rgba(187, 247, 208, 0.55)); }
+.nav-links { display: flex; gap: 40px; margin-left: auto; align-items: center; }
+.nav-links > a, .dropdown > a {
+  color: var(--text-main); font-size: 13px; text-transform: uppercase;
+  font-weight: 600; letter-spacing: 0.1em; transition: var(--transition);
+  cursor: pointer; padding: 10px 0;
+}
+.nav-links > a:hover, .nav-links > a.active, .dropdown > a:hover { color: var(--accent); }
+
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content {
+  display: none; position: absolute; top: 100%; left: 0;
+  background: rgba(26, 34, 33, 0.95); backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  min-width: 220px; border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px; padding: 10px 0;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5); z-index: 101;
+}
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content a {
+  color: var(--text-muted); padding: 12px 20px; display: block;
+  font-size: 13px; font-weight: 500; transition: 0.3s;
+  text-transform: none; letter-spacing: 0;
+}
+.dropdown-content a:hover { background: rgba(255,255,255,0.05); color: var(--accent); padding-left: 25px; }
+
+/* ── MOBİL MENÜ (HAMBURGER) ── */
+.menu-toggle {
+  display: none; cursor: pointer; color: var(--text-main);
+  background: none; border: 0; padding: 8px; margin-right: -8px;
+  line-height: 0;
+}
+.menu-toggle svg { width: 28px; height: 28px; display: block; }
+
+/* ── SAYFA BAŞLIĞI (HERO) — iç sayfaların ortak üst bloğu ── */
+.page-hero { padding: 180px 0 80px; text-align: center; position: relative; }
+.page-hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(187, 247, 208, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+@keyframes shine { to { background-position: 200% center; } }
+
+/* ── ÜYE FOTOĞRAFLARI ── */
+/* Fotoğraflar ekip/ klasöründen okunur. Dosya yoksa placeholder.svg devreye girer. */
+.member-photo {
+  display: block; margin: 0 auto 16px;
+  /* Kare çerçeve (hafif yuvarlatılmış köşe) — ekip sayfasındaki düzenle uyumlu */
+  border-radius: 14px; object-fit: cover; aspect-ratio: 1;
+  border: 2px solid rgba(187, 247, 208, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  transition: var(--transition);
+}
+/* Tek tip boyut: başkandan koordinatöre kadar herkesin fotoğrafı aynı ölçüde.
+   Hiyerarşiyi kart tasarımı ve unvan yazısı zaten anlatıyor. */
+.member-photo { width: 100px; height: 100px; }
+.president-card:hover .member-photo,
+.board-card:hover .member-photo,
+.leader-card:hover .member-photo,
+.coord-card:hover .member-photo { border-color: var(--accent); transform: scale(1.04); }
+
+/* ── FOOTER ── */
+footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); background: #1a2221; }
+.footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 40px; }
+.footer-col h4 { font-size: 18px; color: var(--accent); margin-bottom: 25px; font-weight: 600; letter-spacing: 1px; }
+.social-stacked { display: flex; flex-direction: column; gap: 18px; }
+.social-stacked a { display: flex; align-items: center; gap: 12px; color: var(--text-muted); transition: 0.3s; font-size: 15px; font-weight: 500; }
+.social-stacked a:hover { color: var(--text-main); transform: translateX(5px); }
+.social-stacked svg { width: 22px; height: 22px; fill: currentColor; }
+.footer-links { display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { color: var(--text-muted); transition: 0.3s; font-size: 15px; }
+.footer-links a:hover { color: var(--text-main); transform: translateX(5px); }
+.footer-contact p { color: var(--text-muted); font-size: 14px; line-height: 1.8; margin-bottom: 10px; }
+.footer-bottom { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); font-size: 13px; }
+
+/* ── TABLET ── */
+@media (max-width: 1000px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── MOBİL: hamburger menü devreye girer ── */
+@media (max-width: 900px) {
+  .menu-toggle { display: block; }
+
+  .nav-links {
+    position: absolute; top: var(--nav-height); left: -100%;
+    width: 100%; height: calc(100vh - var(--nav-height));
+    background: rgba(26, 34, 33, 0.98); backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column; padding: 40px 0 60px; transition: left 0.4s ease;
+    align-items: center; justify-content: flex-start; gap: 20px;
+    overflow-y: auto;
+  }
+  .nav-links.active { left: 0; }
+
+  .dropdown { width: 100%; text-align: center; }
+  .dropdown-content {
+    position: static; display: none; background: transparent;
+    border: none; box-shadow: none; padding: 0; text-align: center;
+    min-width: 0; width: 100%;
+  }
+  .dropdown:hover .dropdown-content { display: none; }
+  .dropdown.active .dropdown-content { display: block; margin-top: 10px; }
+  .dropdown-content a { padding: 10px; }
+  .dropdown-content a:hover { padding-left: 10px; }
+}
+
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  footer { padding: 50px 0 30px; }
+  .footer-bottom { margin-top: 35px; }
+  .footer-col h4 { margin-bottom: 16px; }
+}
+
+/* ── MOBİLDE NEFES ALANI ──
+   Telefonda üst boşluklar çok genişti; başlık ve kartlar sıkışmadan
+   ekrana sığsın diye ölçüler burada toparlandı. */
+@media (max-width: 900px) {
+  :root { --nav-height: 76px; }
+  .brand img { height: 52px; }
+  .page-hero { padding: 120px 0 44px; }
+  .member-photo { width: 84px; height: 84px; margin-bottom: 12px; }
+}
+
+@media (max-width: 600px) {
+  .page-hero { padding: 104px 0 36px; }
+  .member-photo { width: 76px; height: 76px; }
+}

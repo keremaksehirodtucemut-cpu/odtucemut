@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="logo-mark.png?v=4" type="image/png">
+<link rel="apple-touch-icon" href="logo-mark.png?v=4">
 <title>Komitelerimiz | ÇEMÜT</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -27,6 +29,8 @@
   .dropdown:hover .dropdown-content { display: block; transform: translateY(0); opacity: 1; }
   .dropdown-content a { color: var(--text-muted); padding: 12px 20px; display: block; font-size: 14px; font-weight: 500; transition: 0.2s; }
   .dropdown-content a:hover { background: var(--card-hover); color: var(--accent); padding-left: 25px; }
+  .menu-toggle { display: none; cursor: pointer; color: var(--text-main); background: none; border: 0; padding: 8px; margin-right: -8px; line-height: 0; }
+  .menu-toggle svg { width: 28px; height: 28px; display: block; }
 
   /* SAYFA YAPI */
   .page-header { padding: 180px 0 80px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
@@ -61,7 +65,29 @@
   .social-links a:hover { color: var(--accent); transform: translateX(5px); }
   .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 14px; }
 
-  @media (max-width: 900px) { .nav-links { display: none; } .committees-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; text-align: center; } .social-links { align-items: center; } }
+  @media (max-width: 900px) {
+    .menu-toggle { display: block; }
+    .nav-links {
+      position: absolute; top: 85px; left: -100%; width: 100%; height: calc(100vh - 85px);
+      background: rgba(1, 26, 8, 0.98); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: flex-start;
+      gap: 20px; padding: 40px 0 60px; overflow-y: auto; transition: left 0.4s ease;
+    }
+    .nav-links.active { left: 0; }
+    .dropdown { width: 100%; text-align: center; }
+    .dropdown-content {
+      position: static; display: none; background: transparent; border: none;
+      box-shadow: none; padding: 0; min-width: 0; width: 100%;
+      transform: none; opacity: 1;
+    }
+    .dropdown:hover .dropdown-content { display: none; }
+    .dropdown.active .dropdown-content { display: block; margin-top: 10px; }
+    .dropdown-content a { padding: 10px; }
+    .dropdown-content a:hover { padding-left: 10px; }
+    .committees-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .social-links { align-items: center; }
+  }
 </style>
 </head>
 <body>
@@ -70,12 +96,19 @@
   <header>
     <div class="container nav-wrapper">
       <a href="index.html" class="brand">
-        <img src="logo.png" alt="ÇEMÜT Logo">
+        <img src="logo-mark.png" alt="ÇEMÜT Logo">
       </a>
+      <button class="menu-toggle" id="mobile-menu" aria-label="Menü" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
       <nav class="nav-links">
         <a href="etkinlikler.html">Etkinliklerimiz</a>
         <div class="dropdown">
-          <a href="komiteler.html" class="active">Komitelerimiz ▾</a>
+          <a href="javascript:void(0)">Komiteler ▾</a>
           <div class="dropdown-content">
             <a href="komite-finans.html">Finans Komitesi</a>
             <a href="komite-etkinlik.html">Etkinlik Komitesi</a>
@@ -88,7 +121,6 @@
         <a href="bulten.html">Bülten</a>
         <a href="hakkimizda.html">Hakkımızda</a>
         <a href="ekip.html">Ekibimiz</a>
-        <a href="isbirlikleri.html">İş Birliklerimiz</a>
         <a href="iletisim.html">İletişim</a>
       </nav>
     </div>
@@ -169,16 +201,17 @@
           <h4>Hızlı Bağlantılar</h4>
           <div class="social-links">
             <a href="https://cevreningelecegi.com" target="_blank">Çevrenin Geleceği Zirvesi</a>
-            <a href="komiteler.html">Çalışma Komitelerimiz</a>
+            <a href="komite-proje.html">Çalışma Komitelerimiz</a>
             <a href="bulten.html">Topluluk Bülteni</a>
           </div>
         </div>
         <div class="footer-col">
           <h4>Sosyal Medya</h4>
           <div class="social-links">
-            <a href="#" target="_blank"><span>Instagram:</span> @odtucemut</a>
-            <a href="#" target="_blank"><span>LinkedIn:</span> METU Environmental Engineering Society</a>
-            <a href="#" target="_blank"><span>TikTok:</span> @odtucemut</a>
+            <a href="https://instagram.com/odtucemut" target="_blank" rel="noopener"><span>Instagram:</span> @odtucemut</a>
+            <a href="https://www.linkedin.com/company/metu-environmental-engineering-society/" target="_blank" rel="noopener"><span>LinkedIn:</span> METU Environmental Engineering Society</a>
+            <a href="https://www.tiktok.com/@odtucemut" target="_blank" rel="noopener"><span>TikTok:</span> @odtucemut</a>
+            <a href="https://www.youtube.com/@ODTÜÇEMÜT" target="_blank" rel="noopener"><span>YouTube:</span> @ODTÜÇEMÜT</a>
           </div>
         </div>
       </div>
@@ -188,5 +221,6 @@
     </div>
   </footer>
 
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Fotoğraf bekleniyor">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a3a36"/>
+      <stop offset="1" stop-color="#1a2221"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" fill="url(#g)"/>
+  <g fill="none" stroke="#bbf7d0" stroke-opacity="0.5" stroke-width="6" stroke-linecap="round">
+    <circle cx="60" cy="44" r="23"/>
+    <path d="M16 106c0-24 20-36 44-36s44 12 44 36"/>
+  </g>
+</svg>

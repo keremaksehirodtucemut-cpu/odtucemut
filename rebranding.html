@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Çevrenin Geleceği Zirvesi Ardından | ÇEMÜT Bülten</title>
+<title>Yeni Kimliğimiz: Bilim Ağacı | ÇEMÜT</title>
 <link rel="icon" href="logo-mark.png?v=4" type="image/png">
 <link rel="apple-touch-icon" href="logo-mark.png?v=4">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -97,6 +97,25 @@
   .post-author-box { flex-direction: column; text-align: center; }
   .post-body .stat-row { flex-direction: column; }
 }
+
+/* Logo tanıtım sahnesi (bu yazıya özel) */
+.post-cover--logo { max-width: 900px !important; }
+.logo-stage {
+  background: linear-gradient(135deg, #0f3d17 0%, #1a6b2a 55%, #0d3314 100%);
+  border: 1px solid var(--card-border); border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  padding: 70px 30px; display: flex; align-items: center; justify-content: center;
+}
+.logo-stage img {
+  width: 230px; height: auto; display: block;
+  filter: drop-shadow(0 8px 26px rgba(0,0,0,0.35));
+}
+.post-body ul strong { color: var(--text-main); font-weight: 700; }
+.post-body p strong { color: var(--text-main); font-weight: 600; }
+@media (max-width: 600px) {
+  .logo-stage { padding: 46px 20px; border-radius: 16px; }
+  .logo-stage img { width: 150px; }
+}
 </style>
 </head>
 <body>
@@ -134,55 +153,66 @@
 
 <div class="container post-hero">
   <a href="bulten.html" class="back-link">← Bültene Dön</a>
-  <span class="blog-tag">Etkinlik</span>
-  <h1>Çevrenin Geleceği Zirvesi Ardından</h1>
+  <span class="blog-tag">Duyuru</span>
+  <h1>Yeni Kimliğimiz: ÇEMÜT Artık Bilim Ağacıyla Anılıyor</h1>
   <div class="post-meta">
     <div class="author-avatar">KA</div>
     <div class="author-text">
-      <h4>Kerem Akşehir</h4>
-      <span>ÇEMÜT Yönetim Kurulu Başkanı • 22 Nisan 2026</span>
+      <h4>Kerem AKŞEHİR</h4>
+      <span>ÇEMÜT Yönetim Kurulu Başkanı • 25 Ağustos 2026</span>
     </div>
   </div>
 </div>
 
-<div class="container post-cover">
-  <img src="cevrebult.jpg" alt="Çevrenin Geleceği Zirvesi" onerror="this.style.display='none'">
+<div class="container post-cover post-cover--logo">
+  <div class="logo-stage">
+    <img src="logo-mark.png" alt="ODTÜ Çevre Mühendisliği Topluluğu yeni logosu">
+  </div>
 </div>
 
 <div class="container post-body">
 
-  <p>20 Nisan 2026'da ODTÜ Kültür ve Kongre Merkezi'nin kapılarını, Türkiye'nin ilk yapay zeka destekli sürdürülebilirlik zirvesi için açtık. ÇEMÜT olarak Algofact iş birliğiyle aylardır üzerinde çalıştığımız Çevrenin Geleceği Zirvesi, geleceğin mühendislerini, sektörün öncü isimlerini ve akademi dünyasını tek bir çatı altında buluşturdu. Yönetim kurulu başkanı olarak söyleyebilirim ki salonun dolup taşan enerjisi, aylardır süren emeğin karşılığını fazlasıyla verdi.</p>
+  <p>25 Ağustos 2026 akşamı, topluluğumuz için uzun süredir üzerinde çalıştığımız bir eşiği geride bıraktık: ODTÜ Çevre Mühendisliği Topluluğu'nun yeni görsel kimliğini tanıttık. Bu, yalnızca bir logo değişikliği değil; ÇEMÜT'ün kendini nasıl anlattığına, hangi değerlerle anıldığına dair bütüncül bir yeniden düşünme süreciydi.</p>
 
-  <div class="stat-row">
-    <div class="stat-box"><div class="num">500+</div><div class="label">Katılımcı</div></div>
-    <div class="stat-box"><div class="num">20+</div><div class="label">Şirket</div></div>
-    <div class="stat-box"><div class="num">10+</div><div class="label">Uzman Konuşmacı</div></div>
-  </div>
+  <h2>Neden Değiştirdik?</h2>
+  <p>Eski logomuz yıllarca bizi temsil etti ve topluluğumuzun hafızasında özel bir yeri var. Ancak zamanla ÇEMÜT büyüdü: yüzlerce kişilik zirveler düzenler, kurumsal sponsorlarla masaya oturur, kendi dergisini basar hale geldik. Bu ölçekte bir topluluğun, her mecrada aynı netlikte görünen bir imzaya ihtiyacı vardı.</p>
 
-  <h2>Açılış ve İlk Oturumlar</h2>
-  <p>Zirve, açılış konuşmaları ve etkinliğin tanıtım sunumlarıyla başladı. Ardından sahneye çıkan Gama Enerji'den Sürdürülebilirlik ve Yönetim Sistemleri Yöneticisi Göknil Cömert, çevre ve enerji sektörünün tarihsel ilişkisini ele alarak güne güçlü bir giriş yaptı. Onu, Anadolu Hayat Emeklilik'ten Strateji ve Kurumsal Performans Yönetimi Müdürü Onur Uğurel izledi; Uğurel, Sürdürülebilir Kalkınma Amaçları'nı merkeze alan kurumsal stratejilerden bahsetti. İlk oturumların kapanışını ise QSI CEO'su Okay Kayhanlı, Avrupa Birliği Yeşil Mutabakatı'nın Türkiye'deki sektörlere yansımalarını anlatarak yaptı.</p>
+  <p>Rüzgâr türbini ve daire kompozisyonundan oluşan eski işaretimiz, küçük boyutlarda — bir Instagram profil fotoğrafında, bir sponsor dosyasının köşesinde, bir rozette — okunurluğunu yitiriyordu. Detay yoğunluğu, dijital mecralarda bize karşı çalışıyordu. Yeni kimliğimizi tasarlarken ilk kuralımız bu oldu: <strong>her boyutta tanınabilir olmak.</strong></p>
 
-  <h2>Öğleden Sonra Oturumları</h2>
-  <p>Öğleden sonra programı, TSKB'den İklim Değişikliği ve Sürdürülebilirlik Yöneticisi Gülçin Kadıoğlu'nun döngüsel ekonomi ve yeşil finansman üzerine yaptığı sunumla devam etti. Ardından zirvenin en çok konuşulan bölümlerinden biri olan panel gerçekleşti: Palmate'ten seri girişimci ve yatırımcı Serdar Turan ile CEO Onur Candan, yapay zekanın sürdürülebilirlik çağındaki rolünü tartıştı. Katılımcılardan gelen soruların yoğunluğu, bu konunun genç mühendisler için ne kadar merak uyandırdığını bir kez daha gösterdi.</p>
+  <h2>İlhamımız: ODTÜ'nün Bilim Ağacı</h2>
+  <p>Yeni logomuzun formu tesadüfi değil. ODTÜ'nün kampüs girişinde bizi karşılayan, kuşaklar boyu her ODTÜ'lünün hafızasına kazınmış <strong>Bilim Ağacı</strong> heykelinden esinlendik. Bu tercih, topluluğumuzun ODTÜ kültürünün bir parçası olduğunu ve bu kültüre kattığı değeri görünür kılma isteğimizden doğdu.</p>
 
-  <p>Kariyer odaklı oturumda PwC'den Sürdürülebilirlik Danışmanı Öykü Deran Ateş, yeni nesil kariyer yollarına dair gözlemlerini paylaştı. Günün son teknik oturumunda ise Mercedes-Benz'den Tedarik Zinciri ekibinden Sunay Yaşar ve Ar-Ge ekibinden Okan Otuz, otomotiv sektöründeki yeşil ve dijital dönüşüm süreçlerini aktardı.</p>
+  <p>Ağacın gövdesi ve dalları bilimi, tepesindeki kavis ise dünyayı temsil ediyor. Formun içine yerleştirdiğimiz kıta siluetleriyle, çevre mühendisliğinin yerel değil küresel bir mesele olduğunu vurguladık. Böylece tek bir işarette <strong>dünya, çevre ve bilim</strong> bir araya geldi.</p>
 
-  <h2>Sanat ve Sürdürülebilirlik</h2>
-  <p>Zirveyi teknik oturumlardan çıkıp farklı bir alana taşıyan kapanış bölümünde sanatçı Ece Mumay sahne aldı. Sanat ve sürdürülebilirlik ilişkisini ele alan bu oturum, günü hem düşündürücü hem de ilham verici bir notla kapattı.</p>
+  <blockquote>Sadece bir kulüp logosu değil; dünya, çevre ve bilimi tek bir formda birleştiren, karmaşadan arınmış ve hafızalara kazınacak kurumsal bir imza.</blockquote>
 
-  <h2>Sponsorlarımıza Teşekkür</h2>
-  <p>Bu ölçekte bir organizasyon, güçlü iş birlikleri olmadan mümkün olmazdı. Kurumsal sponsorumuz Algofact ve Ozonext başta olmak üzere; ana sponsorumuz TSKB, altın sponsorlarımız Gama Enerji ve Palmate, gümüş sponsorlarımız QSI, DaVinci Enerji ve Kıvanç Tekstil, su ayak izi sponsorumuz Blueit ile destekçilerimiz PwC, Mercedes-Benz Türkiye ve Anadolu Hayat Emeklilik'e; ayrıca T.C. Gençlik ve Spor Bakanlığı'nın resmi desteğine içtenlikle teşekkür ederiz.</p>
+  <h2>Kendimize Koyduğumuz Beş Hedef</h2>
+  <p>Süreci baştan sona beş net hedef üzerine kurduk. Her tasarım kararını bu başlıklara göre değerlendirdik:</p>
 
-  <blockquote>Bu zirve bize gösterdi ki sürdürülebilirlik artık tek bir disiplinin değil, mühendisliğin, sanatın ve iş dünyasının ortak meselesi.</blockquote>
+  <ul>
+    <li><strong>Güçlü görsel kimlik.</strong> İlk bakışta tanınan, açıklama gerektirmeyen bir işaret.</li>
+    <li><strong>Her mecrada tutarlılık.</strong> Afişte, dijitalde, baskıda, rozette aynı karakterde görünmek.</li>
+    <li><strong>Sektörel marka konumlanması.</strong> Sponsor ve kurum görüşmelerinde ciddiye alınan bir duruş.</li>
+    <li><strong>Vizyoner marka imajı.</strong> Bugünü değil, topluluğun gideceği yeri anlatan bir dil.</li>
+    <li><strong>Dinamik tasarım sistemi.</strong> Logonun etrafında; renk, tipografi ve düzen kurallarıyla büyüyebilen bir sistem.</li>
+  </ul>
 
-  <p>500'den fazla katılımcıyı, 20'den fazla şirketi ve 10'dan fazla uzman konuşmacıyı bir araya getiren bu zirve, ÇEMÜT için sadece bir etkinlik değil, topluluğumuzun vizyonunu somutlaştırdığı bir dönüm noktası oldu. Emeği geçen tüm komite arkadaşlarıma, konuşmacılarımıza ve zirvemize katılan herkese yürekten teşekkür ediyorum. Gelecek yılki zirvede tekrar buluşmak dileğiyle.</p>
+  <h2>Bir Logodan Fazlası</h2>
+  <p>Yeni kimlik, tek bir dosyadan ibaret değil. Kurumsal yeşilimiz, tipografik hiyerarşimiz, sunum ve afiş şablonlarımız, sosyal medya düzenlerimiz — hepsi aynı sistemin parçası. Bu sayede bültenimizden zirve afişlerimize, komite duyurularımızdan bu web sitesine kadar her yerde aynı ÇEMÜT'ü görüyorsunuz.</p>
+
+  <p>Önümüzdeki dönemde bu sistemi tüm mecralarımıza kademeli olarak yayacağız. Eski görselleri bir gecede değiştirmeyeceğiz; ama yeni ürettiğimiz her şey bu kimliğin izini taşıyacak.</p>
+
+  <h2>Teşekkür</h2>
+  <p>Bu dönüşüm, aylardır süren tartışmaların, onlarca taslağın ve topluluk içinden gelen geri bildirimlerin ürünü. Sürecin her aşamasında emek veren İletişim Komitesi'ne, fikirleriyle katkı sunan tüm komite arkadaşlarıma ve lansman akşamı bizimle olan herkese teşekkür ederim.</p>
+
+  <p>Yeni ağacımız kampüste kök saldı. Şimdi sıra onu birlikte büyütmekte.</p>
 
 </div>
 
 <div class="container post-author-box">
   <div class="author-avatar">KA</div>
   <div>
-    <h4>Kerem Akşehir</h4>
+    <h4>Kerem AKŞEHİR</h4>
     <p>ÇEMÜT Yönetim Kurulu Başkanı</p>
   </div>
 </div>
