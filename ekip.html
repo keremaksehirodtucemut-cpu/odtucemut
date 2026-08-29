@@ -12,6 +12,8 @@
 
 /* ── EKİP SAYFASI ── */
 .team-section { padding: 10px 0 120px; }
+/* Fotoğraflar büyük dursun diye bu sayfada kadraj biraz genişletildi */
+.team-section .container { max-width: 1400px; }
 
 .team-label {
   font-size: 11px; font-weight: 700; letter-spacing: 3px;
@@ -30,7 +32,7 @@
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--card-border);
   border-radius: 16px;
-  padding: 14px 14px 20px;
+  padding: 10px 10px 18px;
   text-align: center;
   transition: 0.3s;
 }
@@ -56,11 +58,11 @@
 .person-card:hover .person-photo .member-photo { transform: none; }
 .person-name {
   font-family: 'Outfit', sans-serif;
-  font-size: 16px; font-weight: 700; color: var(--text-main);
+  font-size: 17px; font-weight: 700; color: var(--text-main);
   line-height: 1.25; margin-bottom: 5px;
 }
 .person-role {
-  font-size: 11.5px; color: var(--text-muted);
+  font-size: 12px; color: var(--text-muted);
   line-height: 1.4; letter-spacing: 0.02em;
 }
 
@@ -68,12 +70,13 @@
 .people-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 18px;
+  gap: 16px;
 }
 /* Başkan tek başına, biraz daha büyük */
 .president-row { display: flex; justify-content: center; }
+/* Genişlik, YK satırındaki kartlarla aynı olsun ki fotoğraflar eşit boyda kalsın */
 .president-row .person-card {
-  width: 190px;
+  width: 207px;
   border-color: var(--accent);
   background: rgba(187, 247, 208, 0.04);
 }
