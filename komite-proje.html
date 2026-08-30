@@ -11,6 +11,21 @@
 <style>
 
 /* ── SAYFA BAŞLIĞI (HERO) ── */
+.page-hero h1 {
+  font-size: clamp(40px, 5vw, 65px);
+  font-weight: 900; text-transform: uppercase;
+  letter-spacing: -1px; margin-bottom: 20px;
+  background: linear-gradient(to right, #ffffff, #bbf7d0, #ffffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+.page-hero p {
+  font-size: 18px; color: var(--text-muted);
+  max-width: 800px; margin: 0 auto; line-height: 1.8;
+  font-weight: 300; letter-spacing: 1px;
+}
 
 /* ── KOMİTE GÖREVLERİ (BİLGİ KARTLARI) ── */
 .info-section { padding: 40px 0 80px; }
@@ -130,6 +145,7 @@
   .coord-grid { gap: 14px; }
   .coord-card { padding: 20px 14px; border-radius: 14px; }
   .coord-name { font-size: 17px; }
+  .page-hero p { font-size: 15px; line-height: 1.7; letter-spacing: 0; }
 }
 @media (max-width: 600px) {
   /* Fotoğraflı kartlar telefonda ikişerli dursun; tek sütun çok yer kaplıyordu */
