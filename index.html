@@ -4,8 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ÇEMÜT | ODTÜ Çevre Mühendisliği Topluluğu</title>
-<link rel="icon" href="logo-mark.png?v=4" type="image/png">
-<link rel="apple-touch-icon" href="logo-mark.png?v=4">
+<meta name="description" content="Çevre bilincini yaymayı, sürdürülebilirlik odaklı etkinlikler ve projelerle farkındalık yaratmayı amaçlayan vizyoner bir öğrenci ekosistemi.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ODTÜ ÇEMÜT">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="ODTÜ Çevre Mühendisliği Topluluğu">
+<meta property="og:description" content="Çevre bilincini yaymayı, sürdürülebilirlik odaklı etkinlikler ve projelerle farkındalık yaratmayı amaçlayan vizyoner bir öğrenci ekosistemi.">
+<meta property="og:url" content="https://odtucemut.com">
+<meta property="og:image" content="https://odtucemut.com/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ODTÜ Çevre Mühendisliği Topluluğu">
+<meta name="twitter:description" content="Çevre bilincini yaymayı, sürdürülebilirlik odaklı etkinlikler ve projelerle farkındalık yaratmayı amaçlayan vizyoner bir öğrenci ekosistemi.">
+<meta name="twitter:image" content="https://odtucemut.com/og-banner.png">
+<link rel="icon" href="favicon.png?v=5" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png?v=5">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -65,22 +79,38 @@
 .hero-meta {
   font-size: clamp(15px, 1.5vw, 18px);
   color: var(--text-muted); font-weight: 300;
-  line-height: 1.75; max-width: 620px; margin-bottom: 34px;
+  line-height: 1.75; max-width: 620px; margin-bottom: 24px;
 }
 
+
+/* Marka sloganı: bannerdaki "çizgiyi delen kelimeler" motifinin sade hali */
+.hero-tagline {
+  display: flex; align-items: center; justify-content: center;
+  gap: 18px; margin: 0 0 34px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.hero-tagline span { position: relative; white-space: nowrap; }
+.hero-tagline span + span::before {
+  content: ''; position: absolute; left: -9px; top: 50%;
+  transform: translateY(-50%);
+  width: 1px; height: 11px; background: rgba(255,255,255,0.22);
+}
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 48px; }
 .btn-hero {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 15px 36px; border-radius: 50px;
-  border: 1px solid rgba(255,255,255,0.22);
-  color: #fff; background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.30);
+  color: #fff; background: rgba(255,255,255,0.07);
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: 14.5px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
   transition: all 0.3s ease; backdrop-filter: blur(10px);
 }
 .btn-hero:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-.btn-hero--solid { background: var(--accent); border-color: var(--accent); color: #12241a; }
+.btn-hero--solid { background: var(--accent); border-color: var(--accent); color: #0d1f14; }
 .btn-hero--solid:hover { background: #fff; border-color: #fff; color: #12241a; }
 
 /* Öne çıkan etkinlik kartı */
@@ -176,10 +206,12 @@
   .hero-logo { width: 76px; height: 76px; margin-bottom: 20px; }
   .hero-kicker { font-size: 10px; letter-spacing: 0.24em; margin-bottom: 10px; }
   .hero h1 { font-size: 34px; margin-bottom: 16px; }
-  .hero-meta { font-size: 14.5px; line-height: 1.7; margin-bottom: 26px; }
+  .hero-meta { font-size: 14.5px; line-height: 1.7; margin-bottom: 20px; }
+  .hero-tagline { font-size: 10px; gap: 13px; letter-spacing: 0.16em; margin-bottom: 26px; }
+  .hero-tagline span + span::before { left: -7px; height: 9px; }
 
   .hero-actions { flex-direction: column; width: 100%; gap: 10px; margin-bottom: 32px; }
-  .btn-hero { width: 100%; padding: 15px 20px; font-size: 12.5px; }
+  .btn-hero { width: 100%; padding: 16px 20px; font-size: 13.5px; }
 
   /* Öne çıkan etkinlik: dar ekranda alt alta dizilsin */
   .hero-feature { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px; border-radius: 16px; }
@@ -285,6 +317,8 @@
       farkındalık yaratmayı amaçlayan vizyoner bir öğrenci ekosistemi.
     </p>
 
+    <p class="hero-tagline"><span>Innovate</span><span>Connect</span><span>Sustain</span></p>
+
     <div class="hero-actions">
       <a href="/hakkimizda" class="btn-hero btn-hero--solid">Bizi Tanıyın</a>
       <a href="/etkinlikler" class="btn-hero">Etkinliklerimiz</a>
@@ -292,7 +326,7 @@
 
     <!-- Zirve artık kapağın tamamını kaplamıyor, öne çıkan etkinlik olarak duruyor -->
     <a href="https://cevreningelecegi.com" target="_blank" rel="noopener" class="hero-feature">
-      <span class="hero-feature-tag">Amiral Etkinliğimiz</span>
+      <span class="hero-feature-tag">Yıllık Zirvemiz</span>
       <span class="hero-feature-body">
         <span class="hero-feature-title">Çevrenin Geleceği Zirvesi</span>
         <span class="hero-feature-stats">
