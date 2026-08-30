@@ -10,158 +10,125 @@
 <link rel="stylesheet" href="style.css">
 <style>
  
-/* 1. HERO - KURUMSAL / KURUM KİMLİĞİ HİSSİ VEREN ALAN */
+/* ── 1. KAPAK (HERO) ──
+   Topluluk kimliği önde: logo + isim + kısa tanım.
+   Zirve, kapağın altında öne çıkan etkinlik kartı olarak duruyor. */
 .hero {
-  height: 100vh; 
-  min-height: 700px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  position: relative; 
-  background: url('cevre.jpg') center center / cover no-repeat; 
-  overflow: hidden;
+  min-height: 100svh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 120px 0 90px;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(187,247,208,0.10) 0%, transparent 70%),
+    linear-gradient(180deg, #17201e 0%, #1a2221 55%, #16201d 100%);
 }
-.hero::before { 
-  content: ''; 
-  position: absolute; 
-  inset: 0; 
-  background: linear-gradient(135deg, rgba(26,34,33,0.95) 0%, rgba(26,34,33,0.4) 100%);
-  z-index: 1; 
+/* Arkada yumuşak yeşil parıltı */
+.hero-glow {
+  position: absolute; top: -18%; left: 50%; transform: translateX(-50%);
+  width: min(900px, 120%); height: 620px; pointer-events: none;
+  background: radial-gradient(circle, rgba(60,160,95,0.20) 0%, transparent 65%);
+  filter: blur(20px);
 }
-.hero-content {
-  position: relative; 
-  z-index: 3; 
-  max-width: 1000px; 
-  text-align: center; 
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+/* Çok soluk, büyük logo filigranı */
+.hero-watermark {
+  position: absolute; right: -8%; bottom: -14%;
+  width: min(620px, 70%); opacity: 0.022;
+  pointer-events: none; user-select: none;
 }
 
-/* ULTRA MODERN, PREMIUM CAM EFEKTLİ ROZET */
-.hero-subtitle {
-  font-family: 'Inter', sans-serif; 
-  font-size: 11px; 
-  font-weight: 600; 
-  letter-spacing: 0.15em; 
-  text-transform: uppercase; 
-  margin-bottom: 24px; 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 22px;
-  border-radius: 100px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--accent);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.hero-content {
+  position: relative; z-index: 3;
+  max-width: 900px; text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+.hero-logo {
+  width: 104px; height: 104px; margin-bottom: 26px;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.45));
+}
+
+.hero-kicker {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--accent); opacity: 0.85; margin-bottom: 14px;
 }
 
 .hero h1 {
-  font-size: clamp(60px, 9vw, 110px); 
-  font-weight: 800; 
-  line-height: 1.05; 
-  letter-spacing: -0.02em;
-  text-transform: uppercase; 
-  color: #ffffff; 
-  margin-bottom: 20px;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  font-size: clamp(38px, 6vw, 76px);
+  font-weight: 800; line-height: 1.05;
+  letter-spacing: -0.03em; color: #fff;
+  margin-bottom: 22px;
+}
+.hero h1 span { color: var(--accent); }
+
+.hero-meta {
+  font-size: clamp(15px, 1.5vw, 18px);
+  color: var(--text-muted); font-weight: 300;
+  line-height: 1.75; max-width: 620px; margin-bottom: 34px;
 }
 
-.hero-meta { 
-  font-family: 'Montserrat', sans-serif; 
-  font-size: 16px; 
-  color: rgba(255,255,255,0.75); 
-  font-weight: 500; 
-  margin-bottom: 30px; 
-  max-width: 600px;
-  line-height: 1.6;
-}
-.hero-action-center {
-  margin-bottom: 50px; 
-  position: relative;
-  z-index: 5;
-}
-.btn-hero { 
-  display: inline-flex; 
-  align-items: center; 
-  justify-content: center;
-  padding: 16px 48px; 
-  background: rgba(26, 34, 33, 0.6); 
-  color: var(--accent); 
-  border: 1px solid var(--accent);
-  font-weight: 600; 
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 48px; }
+.btn-hero {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 15px 36px; border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #fff; background: rgba(255,255,255,0.04);
   font-family: 'Montserrat', sans-serif;
-  border-radius: 50px; 
-  text-transform: uppercase; 
-  transition: all 0.3s ease; 
-  font-size: 14px; 
-  letter-spacing: 0.1em; 
-  backdrop-filter: blur(10px);
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  transition: all 0.3s ease; backdrop-filter: blur(10px);
 }
-.btn-hero:hover { 
-  background: var(--accent); 
-  color: #0f1613; 
-  transform: translateY(-3px); 
-  box-shadow: 0 15px 30px rgba(187, 247, 208, 0.2); 
-}
+.btn-hero:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.btn-hero--solid { background: var(--accent); border-color: var(--accent); color: #12241a; }
+.btn-hero--solid:hover { background: #fff; border-color: #fff; color: #12241a; }
 
-/* KUSURSUZ SİMETRİ VE FERAH İSTATİSTİK DİZİLİMİ */
-.hero-stats-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; 
-  max-width: 800px; 
-  width: 100%;
-  margin: 0 auto;
+/* Öne çıkan etkinlik kartı */
+.hero-feature {
+  display: flex; align-items: center; gap: 22px;
+  width: 100%; max-width: 620px;
+  padding: 20px 24px; border-radius: 18px; text-align: left;
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(187,247,208,0.22);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
 }
-.stat-item {
-  flex: 1; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.hero-feature:hover {
+  border-color: var(--accent);
+  background: rgba(187,247,208,0.07);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
 }
-.stat-num {
-  font-family: 'Outfit', sans-serif;
-  font-size: 36px;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.1;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-.stat-text {
+.hero-feature-tag {
+  flex-shrink: 0; align-self: flex-start;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  color: rgba(255,255,255,0.65);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-top: 6px;
-  font-weight: 600;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(187,247,208,0.35);
+  border-radius: 50px; padding: 5px 11px;
 }
-
-.hero-disclaimer {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  color: rgba(255,255,255,0.3);
-  margin-top: 40px;
-  letter-spacing: 0.05em;
-  font-style: italic;
+.hero-feature-body { flex: 1; min-width: 0; }
+.hero-feature-title {
+  display: block; font-family: 'Outfit', sans-serif;
+  font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 5px;
 }
+.hero-feature-stats {
+  display: flex; flex-wrap: wrap; gap: 4px 16px;
+  font-size: 12.5px; color: var(--text-muted);
+}
+.hero-feature-stats b { color: #fff; font-weight: 700; }
+.hero-feature-go {
+  flex-shrink: 0; color: var(--accent);
+  display: flex; align-items: center; transition: transform 0.3s ease;
+}
+.hero-feature-go svg { width: 20px; height: 20px; }
+.hero-feature:hover .hero-feature-go { transform: translateX(4px); }
 
-.scroll-down { 
-  position: absolute; 
-  bottom: 40px; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  z-index: 4; 
-  color: rgba(255,255,255,0.4); 
-  transition: 0.3s; 
-  animation: bounce 2s infinite ease-in-out; 
+.scroll-down {
+  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+  z-index: 4; color: rgba(255,255,255,0.35); transition: 0.3s;
+  animation: bounce 2s infinite ease-in-out;
 }
 .scroll-down:hover { color: var(--accent); }
 @keyframes bounce {
@@ -203,22 +170,23 @@
 /* ── SADECE MOBİL İÇİN DÜZENLEMELER ── */
 @media (max-width: 900px) {
  
-  /* Hero Section */
-  .hero-content { padding: 0 20px; } 
-  .hero-subtitle { font-size: 10px; padding: 6px 16px; margin-bottom: 16px; }
-  
-  .hero h1 { font-size: 58px; margin-bottom: 20px; }
-  .hero-meta { font-size: 14px; margin-bottom: 25px; padding: 0 10px; }
-  
-  .hero-action-center { margin-bottom: 35px; width: 100%; }
-  .btn-hero { width: 100%; padding: 16px 20px; font-size: 13px; } 
-  
-  .hero-stats-wrapper { gap: 20px; flex-wrap: wrap; justify-content: center; }
-  .stat-item { flex: 1 1 30%; min-width: 95px; }
-  .stat-num { font-size: 28px; }
-  .stat-text { font-size: 10px; }
-  .hero-disclaimer { margin-top: 25px; font-size: 10px; }
-  
+  /* Kapak (hero) */
+  .hero { padding: 96px 0 70px; }
+  .hero-watermark { right: -22%; bottom: -20%; width: 82%; opacity: 0.018; }
+  .hero-logo { width: 76px; height: 76px; margin-bottom: 20px; }
+  .hero-kicker { font-size: 10px; letter-spacing: 0.24em; margin-bottom: 10px; }
+  .hero h1 { font-size: 34px; margin-bottom: 16px; }
+  .hero-meta { font-size: 14.5px; line-height: 1.7; margin-bottom: 26px; }
+
+  .hero-actions { flex-direction: column; width: 100%; gap: 10px; margin-bottom: 32px; }
+  .btn-hero { width: 100%; padding: 15px 20px; font-size: 12.5px; }
+
+  /* Öne çıkan etkinlik: dar ekranda alt alta dizilsin */
+  .hero-feature { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px; border-radius: 16px; }
+  .hero-feature-title { font-size: 16px; }
+  .hero-feature-stats { font-size: 12px; gap: 3px 12px; }
+  .hero-feature-go { display: none; }
+
   .scroll-down { display: none; } 
  
   /* ------------------------------------------------------------- */
@@ -303,39 +271,47 @@
  
 <!-- 1. HERO ALANI -->
 <section class="hero">
-<div class="container hero-content">
-  <div class="hero-subtitle">Türkiye'nin İlk Yapay Zekâ Destekli Sürdürülebilirlik Zirvesi</div>
-  
-  <h1>Çevrenin<br>Geleceği</h1>
-  <p class="hero-meta">ODTÜ Çevre Mühendisliği Topluluğu tarafından her sene düzenlenir.</p>
-  
-  <div class="hero-action-center">
-    <a href="https://cevreningelecegi.com" target="_blank" class="btn-hero">Web Sitesine Git</a>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <img class="hero-watermark" src="logo-mark.png" alt="" aria-hidden="true">
+
+  <div class="container hero-content">
+    <img class="hero-logo" src="logo-mark.png" alt="ODTÜ Çevre Mühendisliği Topluluğu logosu">
+
+    <p class="hero-kicker">Orta Doğu Teknik Üniversitesi</p>
+    <h1>Çevre Mühendisliği<br><span>Topluluğu</span></h1>
+
+    <p class="hero-meta">
+      Çevre bilincini yaymayı, sürdürülebilirlik odaklı etkinlikler ve projelerle
+      farkındalık yaratmayı amaçlayan vizyoner bir öğrenci ekosistemi.
+    </p>
+
+    <div class="hero-actions">
+      <a href="/hakkimizda" class="btn-hero btn-hero--solid">Bizi Tanıyın</a>
+      <a href="/etkinlikler" class="btn-hero">Etkinliklerimiz</a>
+    </div>
+
+    <!-- Zirve artık kapağın tamamını kaplamıyor, öne çıkan etkinlik olarak duruyor -->
+    <a href="https://cevreningelecegi.com" target="_blank" rel="noopener" class="hero-feature">
+      <span class="hero-feature-tag">Amiral Etkinliğimiz</span>
+      <span class="hero-feature-body">
+        <span class="hero-feature-title">Çevrenin Geleceği Zirvesi</span>
+        <span class="hero-feature-stats">
+          <span><b>700+</b> katılımcı</span>
+          <span><b>20+</b> lider şirket</span>
+          <span><b>10+</b> C-level konuşmacı</span>
+        </span>
+      </span>
+      <span class="hero-feature-go" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
   </div>
 
-  <div class="hero-stats-wrapper">
-    <div class="stat-item">
-      <span class="stat-num">20+</span>
-      <span class="stat-text">Lider Şirket</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">700+</span>
-      <span class="stat-text">Katılımcı</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">10+</span>
-      <span class="stat-text">C-Level Konuşmacı</span>
-    </div>
-  </div>
-  
-  <div class="hero-disclaimer">* BiletimGo verileri kullanılmıştır.</div>
-
-</div>
-<a href="#hakkimizda" class="scroll-down">
-<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<path d="M12 5v14M19 12l-7 7-7-7"/>
-</svg>
-</a>
+  <a href="#hakkimizda" class="scroll-down" aria-label="Aşağı kaydır">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
+  </a>
 </section>
  
 <!-- 2. ODTÜ ÇEMÜT BİZ KİMİZ -->
