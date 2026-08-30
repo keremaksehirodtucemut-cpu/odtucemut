@@ -18,10 +18,10 @@
 <meta name="twitter:title" content="ODTÜ Çevre Mühendisliği Topluluğu">
 <meta name="twitter:description" content="Çevre bilincini yaymayı, sürdürülebilirlik odaklı etkinlikler ve projelerle farkındalık yaratmayı amaçlayan vizyoner bir öğrenci ekosistemi.">
 <meta name="twitter:image" content="https://odtucemut.com/og-banner.png">
-<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="icon-64.png">
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="icon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -82,7 +82,7 @@
 /* Sloganın çizgiyi deldiği şerit */
 .hero-rule {
   display: flex; align-items: center;
-  margin: clamp(34px, 4.4vw, 54px) 0 clamp(34px, 4.4vw, 50px);
+  margin: clamp(34px, 4.4vw, 54px) 0 clamp(40px, 5vw, 60px);
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(11px, 1.15vw, 14px); font-weight: 700;
   letter-spacing: 0.22em; text-transform: uppercase; color: #fff;
@@ -95,19 +95,6 @@
 .hero-rule span { padding: 0 clamp(12px, 1.7vw, 24px); white-space: nowrap; }
 .hero-rule span + span { display: flex; align-items: center; }
 
-.hero-links { margin-bottom: clamp(38px, 4.5vw, 54px); }
-.hero-cta {
-  display: inline-flex; align-items: center; gap: 12px;
-  background: #fff; color: #0b3311;
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(15px, 1.35vw, 17px); font-weight: 800; letter-spacing: 0.02em;
-  padding: 19px 46px; border-radius: 4px;
-  box-shadow: 0 16px 38px rgba(0,0,0,0.3);
-  transition: all 0.28s cubic-bezier(.22,.75,.28,1);
-}
-.hero-cta::after { content: '→'; font-size: 1.05em; transition: transform 0.28s ease; }
-.hero-cta:hover { transform: translateY(-3px); box-shadow: 0 22px 46px rgba(0,0,0,0.36); }
-.hero-cta:hover::after { transform: translateX(5px); }
 
 /* Zirve: sade bir satır */
 .hero-summit {
@@ -179,8 +166,6 @@
   .hero-wordmark { font-size: 25px; }
   .hero-rule { margin: 26px 0 30px; font-size: 10px; letter-spacing: 0.13em; }
   .hero-rule span { padding: 0 9px; }
-  .hero-links { margin-bottom: 34px; }
-  .hero-cta { padding: 17px 32px; font-size: 14.5px; }
   .hero-summit { font-size: 15px; padding-top: 18px; }
   .hero-scroll { display: none; }
  
@@ -299,10 +284,6 @@
 
     <div class="hero-rule rise" style="--d:.18s">
       <span>Innovate</span><span>Connect</span><span>Sustain</span>
-    </div>
-
-    <div class="hero-links rise" style="--d:.3s">
-      <a href="/etkinlikler" class="hero-cta">Etkinliklerimiz</a>
     </div>
 
     <a href="https://cevreningelecegi.com" target="_blank" rel="noopener" class="hero-summit rise" style="--d:.4s">
