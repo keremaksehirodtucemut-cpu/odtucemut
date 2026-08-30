@@ -100,8 +100,8 @@
   background: var(--card-bg);
   border-top: 1px solid var(--card-border);
   border-bottom: 1px solid var(--card-border);
-  padding: 60px 0;
-  margin-bottom: 120px;
+  padding: 48px 0;
+  margin-bottom: 100px;
 }
 .stats-grid {
   display: flex;
@@ -112,8 +112,9 @@
   text-align: center;
 }
 .stat-item h3 {
-  font-size: 48px; font-weight: 900;
-  color: var(--accent); margin-bottom: 5px;
+  font-size: clamp(30px, 4vw, 46px); font-weight: 900;
+  color: var(--accent); margin-bottom: 0;
+  letter-spacing: 0.02em;
 }
 .stat-item p {
   font-size: 13px; font-weight: 600;
@@ -205,16 +206,13 @@
 <div class="stats-banner">
   <div class="container stats-grid">
     <div class="stat-item">
-      <h3>İnovasyon</h3>
-      <p>Yapay Zeka Destekli Projeler</p>
+      <h3>Innovate</h3>
     </div>
     <div class="stat-item">
-      <h3>Aksiyon</h3>
-      <p>Sahada Uygulanabilir Fikirler</p>
+      <h3>Connect</h3>
     </div>
     <div class="stat-item">
-      <h3>Sinerji</h3>
-      <p>Sektör ve Akademi Buluşması</p>
+      <h3>Sustain</h3>
     </div>
   </div>
 </div>

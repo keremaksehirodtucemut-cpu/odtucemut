@@ -71,7 +71,7 @@
   display: flex; flex-direction: column;
   font-family: 'Outfit', sans-serif;
   font-size: clamp(27px, 4.8vw, 60px);
-  font-weight: 800; line-height: 0.98;
+  font-weight: 800; line-height: 1.12;
   letter-spacing: -0.025em; text-transform: uppercase; color: #fff;
 }
 .hero-wordmark .wm-sm {
@@ -82,7 +82,7 @@
 /* Sloganın çizgiyi deldiği şerit */
 .hero-rule {
   display: flex; align-items: center;
-  margin: clamp(34px, 4.4vw, 54px) 0 clamp(40px, 5vw, 60px);
+  margin: clamp(32px, 4vw, 48px) 0 clamp(24px, 2.8vw, 34px);
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(11px, 1.15vw, 14px); font-weight: 700;
   letter-spacing: 0.22em; text-transform: uppercase; color: #fff;
@@ -101,7 +101,6 @@
   display: inline-flex; align-items: baseline; gap: 11px;
   font-family: 'Outfit', sans-serif; font-size: clamp(14px, 1.4vw, 18px);
   font-weight: 600; color: #fff;
-  padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.24);
   transition: 0.28s;
 }
 .hero-summit-yil {
@@ -109,7 +108,7 @@
   letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.62);
 }
 .hero-summit-ok { transition: transform 0.28s ease; }
-.hero-summit:hover { border-color: rgba(255,255,255,0.65); }
+.hero-summit:hover { opacity: 0.85; }
 .hero-summit:hover .hero-summit-ok { transform: translateX(6px); }
 
 /* Kaydırma imi */
@@ -159,14 +158,16 @@
 /* ── SADECE MOBİL İÇİN DÜZENLEMELER ── */
 @media (max-width: 900px) {
  
-  /* Kapak */
-  .hero { padding: 100px 0 72px; min-height: auto; }
-  .hero-lockup { gap: 16px; }
-  .hero-mark { width: 84px; }
-  .hero-wordmark { font-size: 25px; }
-  .hero-rule { margin: 26px 0 30px; font-size: 10px; letter-spacing: 0.13em; }
+  /* Kapak: telefonda da dolu bir kapak hissi versin */
+  .hero { padding: 108px 0 84px; min-height: 82svh; }
+  /* feTurbulence dokusu ve blend mobilde ciddi yavaşlatıyor; kapatıldı */
+  .hero-grain { display: none; }
+  .hero-lockup { gap: 18px; }
+  .hero-mark { width: 96px; }
+  .hero-wordmark { font-size: 29px; line-height: 1.16; }
+  .hero-rule { margin: 26px 0 22px; font-size: 10px; letter-spacing: 0.13em; }
   .hero-rule span { padding: 0 9px; }
-  .hero-summit { font-size: 15px; padding-top: 18px; }
+  .hero-summit { font-size: 15px; }
   .hero-scroll { display: none; }
  
   /* ------------------------------------------------------------- */
@@ -308,7 +309,7 @@
 <a href="/hakkimizda" class="btn-primary">Biz Kimiz?</a>
 </div>
 <div class="about-img-col">
-<img src="zirve.jpg" alt="ODTÜ ÇEMÜT">
+<img src="zirve.jpg" alt="ODTÜ ÇEMÜT" loading="lazy" decoding="async">
 </div>
 </div>
 </section>
@@ -339,18 +340,18 @@
 <h2 class="section-title">Etkinliklerimiz</h2>
 <div class="gallery-grid">
 <div class="gallery-item-carousel">
-<img src="BASKI.jpg" alt="Çevrenin Geleceği Afişi">
-<img src="zirve.jpg" alt="Çevrenin Geleceği Etkinlik Foto 2">
-<img src="BASKI-foto3.png" alt="Çevrenin Geleceği Etkinlik Foto 3">
+<img src="BASKI.jpg" alt="Çevrenin Geleceği Afişi" loading="lazy" decoding="async">
+<img src="zirve.jpg" alt="Çevrenin Geleceği Etkinlik Foto 2" loading="lazy" decoding="async">
+<img src="BASKI-foto3.png" alt="Çevrenin Geleceği Etkinlik Foto 3" loading="lazy" decoding="async">
 <div class="gallery-item-carousel-dots"><span></span><span></span><span></span></div>
 </div>
-<img src="konusmalar.jpg" alt="Etkinlik 2">
-<img src="studywithme.jpg" alt="Etkinlik 3">
-<img src="yilbasi.jpg" alt="Etkinlik 4">
-<img src="enves.jpg" alt="Etkinlik 5">
-<img src="bodymist.jpg" alt="Etkinlik 6">
-<img src="seramik.jpeg" alt="Etkinlik 7">
-<img src="cemut.jpeg" alt="Etkinlik 8">
+<img src="konusmalar.jpg" alt="Etkinlik 2" loading="lazy" decoding="async">
+<img src="studywithme.jpg" alt="Etkinlik 3" loading="lazy" decoding="async">
+<img src="yilbasi.jpg" alt="Etkinlik 4" loading="lazy" decoding="async">
+<img src="enves.jpg" alt="Etkinlik 5" loading="lazy" decoding="async">
+<img src="bodymist.jpg" alt="Etkinlik 6" loading="lazy" decoding="async">
+<img src="seramik.jpeg" alt="Etkinlik 7" loading="lazy" decoding="async">
+<img src="cemut.jpeg" alt="Etkinlik 8" loading="lazy" decoding="async">
 </div>
 </section>
  
@@ -367,37 +368,37 @@
 <h2 class="section-title">İş Birliklerimiz</h2>
 <div class="marquee-wrapper">
 <div class="marquee-track">
-<img src="algofact.png" alt="Sponsor 1">
-<img src="mercedes.png" alt="Sponsor 2">
-<img src="tskb.png" alt="Sponsor 3">
-<img src="pwc.jpg" alt="Sponsor 4">
-<img src="ozonext.png" alt="Sponsor 5">
-<img src="kivanc.jpg" alt="Sponsor 6">
-<img src="pladis.png" alt="Sponsor 7">
-<img src="davinci.png" alt="Sponsor 8">
-<img src="gama.jpg" alt="Sponsor 9">
-<img src="qsi.png" alt="Sponsor 10">
-<img src="blueit.png" alt="Sponsor 11">
-<img src="anadolu.jpg" alt="Sponsor 12">
-<img src="3i.png" alt="Sponsor 13">
-<img src="sust.jpg" alt="Sponsor 14">
-<img src="et.jpg" alt="Sponsor 15">
+<img src="algofact.png" alt="Sponsor 1" loading="lazy" decoding="async">
+<img src="mercedes.png" alt="Sponsor 2" loading="lazy" decoding="async">
+<img src="tskb.png" alt="Sponsor 3" loading="lazy" decoding="async">
+<img src="pwc.jpg" alt="Sponsor 4" loading="lazy" decoding="async">
+<img src="ozonext.png" alt="Sponsor 5" loading="lazy" decoding="async">
+<img src="kivanc.jpg" alt="Sponsor 6" loading="lazy" decoding="async">
+<img src="pladis.png" alt="Sponsor 7" loading="lazy" decoding="async">
+<img src="davinci.png" alt="Sponsor 8" loading="lazy" decoding="async">
+<img src="gama.jpg" alt="Sponsor 9" loading="lazy" decoding="async">
+<img src="qsi.png" alt="Sponsor 10" loading="lazy" decoding="async">
+<img src="blueit.png" alt="Sponsor 11" loading="lazy" decoding="async">
+<img src="anadolu.jpg" alt="Sponsor 12" loading="lazy" decoding="async">
+<img src="3i.png" alt="Sponsor 13" loading="lazy" decoding="async">
+<img src="sust.jpg" alt="Sponsor 14" loading="lazy" decoding="async">
+<img src="et.jpg" alt="Sponsor 15" loading="lazy" decoding="async">
 <!-- Tekrarı -->
-<img src="algofact.png" alt="Sponsor 1">
-<img src="mercedes.png" alt="Sponsor 2">
-<img src="tskb.png" alt="Sponsor 3">
-<img src="pwc.jpg" alt="Sponsor 4">
-<img src="ozonext.png" alt="Sponsor 5">
-<img src="kivanc.jpg" alt="Sponsor 6">
-<img src="pladis.png" alt="Sponsor 7">
-<img src="davinci.png" alt="Sponsor 8">
-<img src="gama.jpg" alt="Sponsor 9">
-<img src="qsi.png" alt="Sponsor 10">
-<img src="blueit.png" alt="Sponsor 11">
-<img src="anadolu.jpg" alt="Sponsor 12">
-<img src="3i.png" alt="Sponsor 13">
-<img src="sust.jpg" alt="Sponsor 14">
-<img src="et.jpg" alt="Sponsor 15">
+<img src="algofact.png" alt="Sponsor 1" loading="lazy" decoding="async">
+<img src="mercedes.png" alt="Sponsor 2" loading="lazy" decoding="async">
+<img src="tskb.png" alt="Sponsor 3" loading="lazy" decoding="async">
+<img src="pwc.jpg" alt="Sponsor 4" loading="lazy" decoding="async">
+<img src="ozonext.png" alt="Sponsor 5" loading="lazy" decoding="async">
+<img src="kivanc.jpg" alt="Sponsor 6" loading="lazy" decoding="async">
+<img src="pladis.png" alt="Sponsor 7" loading="lazy" decoding="async">
+<img src="davinci.png" alt="Sponsor 8" loading="lazy" decoding="async">
+<img src="gama.jpg" alt="Sponsor 9" loading="lazy" decoding="async">
+<img src="qsi.png" alt="Sponsor 10" loading="lazy" decoding="async">
+<img src="blueit.png" alt="Sponsor 11" loading="lazy" decoding="async">
+<img src="anadolu.jpg" alt="Sponsor 12" loading="lazy" decoding="async">
+<img src="3i.png" alt="Sponsor 13" loading="lazy" decoding="async">
+<img src="sust.jpg" alt="Sponsor 14" loading="lazy" decoding="async">
+<img src="et.jpg" alt="Sponsor 15" loading="lazy" decoding="async">
 </div>
 </div>
 </section>
