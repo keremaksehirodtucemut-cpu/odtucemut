@@ -96,6 +96,22 @@
   .president-row .person-name { font-size: 15px; }
   .team-section { padding: 0 0 70px; }
 }
+
+/* LinkedIn rozeti — yalnızca adresi girilmiş kişilerde görünür */
+.person-linkedin {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; margin-top: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--card-border);
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+.person-linkedin svg { width: 15px; height: 15px; fill: currentColor; }
+.person-linkedin:hover {
+  background: var(--accent); color: #12241a;
+  border-color: var(--accent); transform: translateY(-2px);
+}
 </style>
 </head>
 <body>
@@ -144,7 +160,7 @@
     <!-- BAŞKAN -->
     <p class="team-label">Yönetim Kurulu Başkanı</p>
     <div class="president-row">
-        <div class="person-card">
+        <div class="person-card" data-kisi="kerem-aksehir">
           <div class="person-photo">
             <img class="member-photo" src="foto/kerem-aksehir.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -158,7 +174,7 @@
     <!-- YÖNETİM KURULU -->
     <p class="team-label">Yönetim Kurulu</p>
     <div class="people-grid board-row">
-        <div class="person-card">
+        <div class="person-card" data-kisi="melis-tuna">
           <div class="person-photo">
             <img class="member-photo" src="foto/melis-tuna.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -167,7 +183,7 @@
           <div class="person-name">Melis TUNA</div>
           <div class="person-role">Etkinlik'den Sorumlu YK Üyesi</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="sude-beren-aygun">
           <div class="person-photo">
             <img class="member-photo" src="foto/sude-beren-aygun.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -176,7 +192,7 @@
           <div class="person-name">Sude Beren AYGÜN</div>
           <div class="person-role">Sosyal İlişkiler'den Sorumlu YK Üyesi</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="ardil-imrek">
           <div class="person-photo">
             <img class="member-photo" src="foto/ardil-imrek.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -185,7 +201,7 @@
           <div class="person-name">Ardıl İMREK</div>
           <div class="person-role">Finans'den Sorumlu YK Üyesi</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="eylul-nisa-yay">
           <div class="person-photo">
             <img class="member-photo" src="foto/eylul-nisa-yay.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -194,7 +210,7 @@
           <div class="person-name">Eylül Nisa YAY</div>
           <div class="person-role">İletişim'den Sorumlu YK Üyesi</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="sila-yilmaz">
           <div class="person-photo">
             <img class="member-photo" src="foto/sila-yilmaz.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -203,7 +219,7 @@
           <div class="person-name">Sıla YILMAZ</div>
           <div class="person-role">Proje'den Sorumlu YK Üyesi</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="okan-berber">
           <div class="person-photo">
             <img class="member-photo" src="foto/okan-berber.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -217,7 +233,7 @@
     <!-- ETKINLIK KOORDINATÖRLERI -->
     <p class="team-label"><a href="/komite-etkinlik">Etkinlik Koordinatörleri</a></p>
     <div class="people-grid">
-        <div class="person-card">
+        <div class="person-card" data-kisi="egemen-altikardes">
           <div class="person-photo">
             <img class="member-photo" src="foto/egemen-altikardes.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -226,7 +242,7 @@
           <div class="person-name">Egemen ALTIKARDEŞ</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="ezgi-kilic">
           <div class="person-photo">
             <img class="member-photo" src="foto/ezgi-kilic.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -235,7 +251,7 @@
           <div class="person-name">Ezgi KILIÇ</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="tuna-coskun">
           <div class="person-photo">
             <img class="member-photo" src="foto/tuna-coskun.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -244,7 +260,7 @@
           <div class="person-name">Tuna COŞKUN</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="elif-yuksel">
           <div class="person-photo">
             <img class="member-photo" src="foto/elif-yuksel.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -258,7 +274,7 @@
     <!-- SOSYAL İLIŞKILER KOORDINATÖRLERI -->
     <p class="team-label"><a href="/komite-sosyal">Sosyal İlişkiler Koordinatörleri</a></p>
     <div class="people-grid">
-        <div class="person-card">
+        <div class="person-card" data-kisi="basak-dindaroglu">
           <div class="person-photo">
             <img class="member-photo" src="foto/basak-dindaroglu.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -267,7 +283,7 @@
           <div class="person-name">Başak DİNDAROĞLU</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="nisa-yesil">
           <div class="person-photo">
             <img class="member-photo" src="foto/nisa-yesil.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -276,7 +292,7 @@
           <div class="person-name">Nisa YEŞİL</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="talha-melih-erdemir">
           <div class="person-photo">
             <img class="member-photo" src="foto/talha-melih-erdemir.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -290,7 +306,7 @@
     <!-- FINANS KOORDINATÖRLERI -->
     <p class="team-label"><a href="/komite-finans">Finans Koordinatörleri</a></p>
     <div class="people-grid">
-        <div class="person-card">
+        <div class="person-card" data-kisi="sevvalnaz-encok">
           <div class="person-photo">
             <img class="member-photo" src="foto/sevvalnaz-encok.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -299,7 +315,7 @@
           <div class="person-name">Şevvalnaz ENÇOK</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="ulas-mert-sekerci">
           <div class="person-photo">
             <img class="member-photo" src="foto/ulas-mert-sekerci.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -308,7 +324,7 @@
           <div class="person-name">Ulaş Mert ŞEKERCİ</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="arzum-doga-olcer">
           <div class="person-photo">
             <img class="member-photo" src="foto/arzum-doga-olcer.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -317,7 +333,7 @@
           <div class="person-name">Arzum Doğa ÖLÇER</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="cagri-mert-kilic">
           <div class="person-photo">
             <img class="member-photo" src="foto/cagri-mert-kilic.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -331,7 +347,7 @@
     <!-- İLETIŞIM KOORDINATÖRLERI -->
     <p class="team-label"><a href="/komite-iletisim">İletişim Koordinatörleri</a></p>
     <div class="people-grid">
-        <div class="person-card">
+        <div class="person-card" data-kisi="tamay-altun">
           <div class="person-photo">
             <img class="member-photo" src="foto/tamay-altun.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -340,7 +356,7 @@
           <div class="person-name">Tamay ALTUN</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="bengisu-basar">
           <div class="person-photo">
             <img class="member-photo" src="foto/bengisu-basar.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -349,7 +365,7 @@
           <div class="person-name">Bengisu BAŞAR</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="mariya-cekal">
           <div class="person-photo">
             <img class="member-photo" src="foto/mariya-cekal.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -358,7 +374,7 @@
           <div class="person-name">Mariya ÇEKAL</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="aylis-samiloglu">
           <div class="person-photo">
             <img class="member-photo" src="foto/aylis-samiloglu.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -372,7 +388,7 @@
     <!-- PROJE KOORDINATÖRLERI -->
     <p class="team-label"><a href="/komite-proje">Proje Koordinatörleri</a></p>
     <div class="people-grid">
-        <div class="person-card">
+        <div class="person-card" data-kisi="melis-yazar">
           <div class="person-photo">
             <img class="member-photo" src="foto/melis-yazar.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -381,7 +397,7 @@
           <div class="person-name">Melis YAZAR</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="elif-demirkan">
           <div class="person-photo">
             <img class="member-photo" src="foto/elif-demirkan.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -390,7 +406,7 @@
           <div class="person-name">Elif DEMİRKAN</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="riza-cem-kabatas">
           <div class="person-photo">
             <img class="member-photo" src="foto/riza-cem-kabatas.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -404,7 +420,7 @@
     <!-- BÜLTEN KOORDINATÖRLERI -->
     <p class="team-label"><a href="/komite-bulten">Bülten Koordinatörleri</a></p>
     <div class="people-grid">
-        <div class="person-card">
+        <div class="person-card" data-kisi="bartu-yildirim">
           <div class="person-photo">
             <img class="member-photo" src="foto/bartu-yildirim.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -413,7 +429,7 @@
           <div class="person-name">Bartu YILDIRIM</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="deniz-diyar-dal">
           <div class="person-photo">
             <img class="member-photo" src="foto/deniz-diyar-dal.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -422,7 +438,7 @@
           <div class="person-name">Deniz Diyar DAL</div>
           <div class="person-role">Koordinatör</div>
         </div>
-        <div class="person-card">
+        <div class="person-card" data-kisi="defne-erduman">
           <div class="person-photo">
             <img class="member-photo" src="foto/defne-erduman.jpg"
                  onerror="this.onerror=null;this.src='foto/placeholder.svg'"
@@ -494,5 +510,66 @@
 </footer>
 
 <script src="script.js"></script>
+
+<script>
+/* =========================================================================
+   EKİP LINKEDIN ADRESLERİ
+
+   Aşağıdaki listede her ismin yanındaki "" tırnakların ARASINA o kişinin
+   LinkedIn profil adresini yapıştır. Örnek:
+
+       "kerem-aksehir": "https://www.linkedin.com/in/keremaksehir/",
+
+   Adresi girilmeyen kişide simge hiç görünmez, kart bozulmaz.
+   Kişilerden izin almadan profil eklemeyin.
+   ========================================================================= */
+const LINKEDIN = {
+  "kerem-aksehir": "",             // Kerem AKŞEHİR — Yönetim Kurulu Başkanı
+  "melis-tuna": "",                // Melis TUNA — Etkinlik'den Sorumlu YK Üyesi
+  "sude-beren-aygun": "",          // Sude Beren AYGÜN — Sosyal İlişkiler'den Sorumlu YK Üyesi
+  "ardil-imrek": "",               // Ardıl İMREK — Finans'den Sorumlu YK Üyesi
+  "eylul-nisa-yay": "",            // Eylül Nisa YAY — İletişim'den Sorumlu YK Üyesi
+  "sila-yilmaz": "",               // Sıla YILMAZ — Proje'den Sorumlu YK Üyesi
+  "okan-berber": "",               // Okan BERBER — Bülten'den Sorumlu YK Üyesi
+  "egemen-altikardes": "",         // Egemen ALTIKARDEŞ — Koordinatör
+  "ezgi-kilic": "",                // Ezgi KILIÇ — Koordinatör
+  "tuna-coskun": "",               // Tuna COŞKUN — Koordinatör
+  "elif-yuksel": "",               // Elif YÜKSEL — Koordinatör
+  "basak-dindaroglu": "",          // Başak DİNDAROĞLU — Koordinatör
+  "nisa-yesil": "",                // Nisa YEŞİL — Koordinatör
+  "talha-melih-erdemir": "",       // Talha Melih ERDEMİR — Koordinatör
+  "sevvalnaz-encok": "",           // Şevvalnaz ENÇOK — Koordinatör
+  "ulas-mert-sekerci": "",         // Ulaş Mert ŞEKERCİ — Koordinatör
+  "arzum-doga-olcer": "",          // Arzum Doğa ÖLÇER — Koordinatör
+  "cagri-mert-kilic": "",          // Çağrı Mert KILIÇ — Koordinatör
+  "tamay-altun": "",               // Tamay ALTUN — Koordinatör
+  "bengisu-basar": "",             // Bengisu BAŞAR — Koordinatör
+  "mariya-cekal": "",              // Mariya ÇEKAL — Koordinatör
+  "aylis-samiloglu": "",           // Aylis ŞAMİLOĞLU — Koordinatör
+  "melis-yazar": "",               // Melis YAZAR — Koordinatör
+  "elif-demirkan": "",             // Elif DEMİRKAN — Koordinatör
+  "riza-cem-kabatas": "",          // Rıza Cem KABATAŞ — Koordinatör
+  "bartu-yildirim": "",            // Bartu YILDIRIM — Koordinatör
+  "deniz-diyar-dal": "",           // Deniz Diyar DAL — Koordinatör
+  "defne-erduman": "",             // Defne ERDUMAN — Koordinatör
+};
+
+/* Aşağısına dokunmana gerek yok — adresi olan kartlara simgeyi ekler. */
+document.querySelectorAll('.person-card').forEach(function (kart) {
+  var adres = LINKEDIN[kart.dataset.kisi];
+  if (!adres) return;
+  var ad = kart.querySelector('.person-name').textContent.trim();
+  var a = document.createElement('a');
+  a.className = 'person-linkedin';
+  a.href = adres;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.setAttribute('aria-label', ad + ' — LinkedIn profili');
+  a.title = ad + ' — LinkedIn';
+  a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
+  kart.appendChild(a);
+});
+</script>
+
 </body>
 </html>
