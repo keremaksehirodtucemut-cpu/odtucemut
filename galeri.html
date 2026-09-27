@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeri | ÇEMÜT</title>
+<meta name="description" content="ODTÜ Çevre Mühendisliği Topluluğu — etkinliklerimizden, projelerimizden ve topluluk hayatımızdan kareler.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ODTÜ ÇEMÜT">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Galeri | ODTÜ ÇEMÜT">
+<meta property="og:description" content="Etkinliklerimizden, projelerimizden ve topluluk hayatımızdan kareler.">
+<meta property="og:url" content="https://odtucemut.com/galeri">
+<meta property="og:image" content="https://odtucemut.com/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Galeri | ODTÜ ÇEMÜT">
+<meta name="twitter:description" content="Etkinliklerimizden, projelerimizden ve topluluk hayatımızdan kareler.">
+<meta name="twitter:image" content="https://odtucemut.com/og-banner.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── SAYFA BAŞLIĞI ── */
+.page-hero h1 {
+  font-size: clamp(45px, 6vw, 75px);
+  font-weight: 900; text-transform: uppercase;
+  letter-spacing: -1px; margin-bottom: 25px;
+  background: linear-gradient(to right, #ffffff, #bbf7d0, #ffffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+.page-hero p {
+  font-size: 18px; color: var(--text-muted);
+  max-width: 800px; margin: 0 auto; line-height: 1.8; font-weight: 400;
+}
+
+/* ── GALERİ ── */
+.galeri-section { padding: 20px 0 120px; }
+
+/* Duvar örgüsü düzen: dikey ve yatay fotoğraflar birlikte güzel otursun */
+.galeri-grid {
+  columns: 3;
+  column-gap: 16px;
+}
+.galeri-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  cursor: zoom-in;
+  display: block;
+  position: relative;
+}
+.galeri-item img {
+  width: 100%; height: auto; display: block;
+  transition: transform 0.45s ease, filter 0.45s ease;
+  filter: grayscale(12%);
+}
+.galeri-item:hover img { transform: scale(1.04); filter: grayscale(0%); }
+.galeri-item figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 26px 16px 13px;
+  font-size: 13px; font-weight: 500; color: #fff;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.75));
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.galeri-item:hover figcaption { opacity: 1; }
+
+/* Fotoğraf yokken gösterilen bilgi kutusu */
+.galeri-bos {
+  text-align: center; padding: 70px 24px;
+  border: 1px dashed var(--card-border); border-radius: 18px;
+  color: var(--text-muted);
+}
+.galeri-bos h3 { font-size: 20px; color: var(--text-main); margin-bottom: 10px; }
+.galeri-bos p { font-size: 15px; line-height: 1.7; max-width: 430px; margin: 0 auto; }
+
+/* ── BÜYÜTME (LIGHTBOX) ── */
+.lightbox {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(10, 14, 13, 0.94);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px 20px;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img {
+  max-width: 100%; max-height: 100%;
+  object-fit: contain; border-radius: 10px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+}
+.lightbox-kapat {
+  position: absolute; top: 22px; right: 26px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 24px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: 0.25s;
+}
+.lightbox-kapat:hover { background: var(--accent); color: #12241a; border-color: var(--accent); }
+.lightbox-ok {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 22px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: 0.25s;
+}
+.lightbox-ok:hover { background: var(--accent); color: #12241a; border-color: var(--accent); }
+.lightbox-onceki { left: 20px; }
+.lightbox-sonraki { right: 20px; }
+
+@media (max-width: 900px) {
+  .page-hero p { font-size: 15px; line-height: 1.7; }
+  .galeri-section { padding: 10px 0 70px; }
+  .galeri-grid { columns: 2; column-gap: 12px; }
+  .galeri-item { margin-bottom: 12px; border-radius: 11px; }
+  .galeri-item figcaption { display: none; }
+  .lightbox { padding: 16px; }
+  .lightbox-ok { width: 40px; height: 40px; }
+  .lightbox-onceki { left: 8px; }
+  .lightbox-sonraki { right: 8px; }
+}
+@media (max-width: 480px) {
+  .galeri-grid { columns: 2; column-gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-wrapper">
+    <a href="/" class="brand"><img src="logo-mark.png" alt="ÇEMÜT"></a>
+    <button class="menu-toggle" id="mobile-menu" aria-label="Menü" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="nav-links">
+      <a href="/etkinlikler">Etkinlikler</a>
+      <div class="dropdown">
+        <a href="javascript:void(0)">Komiteler ▾</a>
+        <div class="dropdown-content">
+          <a href="/komite-finans">Finans Komitesi</a>
+          <a href="/komite-proje">Proje Komitesi</a>
+          <a href="/komite-etkinlik">Etkinlik Komitesi</a>
+          <a href="/komite-iletisim">İletişim Komitesi</a>
+          <a href="/komite-bulten">Bülten Komitesi</a>
+          <a href="/komite-sosyal">Sosyal İlişkiler</a>
+        </div>
+      </div>
+      <a href="/bulten">Bülten</a>
+      <a href="/galeri" class="active">Galeri</a>
+      <a href="/hakkimizda">Hakkımızda</a>
+      <a href="/ekip">Ekibimiz</a>
+      <a href="/iletisim">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<!-- SAYFA BAŞLIĞI -->
+<div class="page-hero">
+  <div class="container">
+    <h1>Galeri</h1>
+    <p>Etkinliklerimizden, projelerimizden ve topluluk hayatımızdan kareler.</p>
+  </div>
+</div>
+
+<!-- GALERİ -->
+<section class="galeri-section">
+  <div class="container">
+
+    <!-- =====================================================================
+         YENİ FOTOĞRAF EKLEMEK İÇİN:
+         1. Fotoğrafı "galeri-foto" klasörüne koy (örn: galeri-foto/etkinlik-1.jpg)
+         2. Aşağıdaki <figure> bloğunu kopyala, src ve açıklamayı değiştir
+         Açıklama istemiyorsan <figcaption> satırını silebilirsin.
+         ===================================================================== -->
+    <div class="galeri-grid" id="galeri-grid">
+
+      <figure class="galeri-item">
+        <img src="hakkimizda-foto.jpg" alt="ODTÜ ÇEMÜT ekibi tanıtım günlerinde" loading="lazy" decoding="async">
+        <figcaption>Topluluk Tanıtım Günleri</figcaption>
+      </figure>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- BÜYÜTME -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-kapat" id="lb-kapat" aria-label="Kapat">&times;</button>
+  <button class="lightbox-ok lightbox-onceki" id="lb-onceki" aria-label="Önceki">&#8249;</button>
+  <img id="lb-gorsel" alt="">
+  <button class="lightbox-ok lightbox-sonraki" id="lb-sonraki" aria-label="Sonraki">&#8250;</button>
+</div>
+
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h4>Sosyal Medya</h4>
+      <div class="social-stacked">
+        <a href="https://instagram.com/odtucemut" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm3.98-10.822a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.youtube.com/@ODTÜÇEMÜT" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+        <a href="https://www.linkedin.com/company/metu-environmental-engineering-society/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://www.tiktok.com/@odtucemut" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.01.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.2-.15 2.39-.52 3.54-.85 2.14-2.65 3.81-4.85 4.3-.49.1-1.02.16-1.56.16-1.5 0-2.9-.38-4.13-1.07-1.74-1-2.98-2.61-3.46-4.57-.2-.8-.26-1.65-.13-2.48.24-1.5.95-2.87 2.06-3.85 1.11-.98 2.52-1.57 4.02-1.68.22-.01.44-.02.66-.02v4.06c-.16 0-.32 0-.48.02-.68.04-1.34.34-1.84.8-.5.45-.81 1.05-.9 1.7-.1.74.05 1.51.44 2.15.54.89 1.5 1.48 2.56 1.54 1.05.06 2.06-.39 2.72-1.18.66-.78 1.02-1.8 1.02-2.86V.02z"/></svg>
+          TikTok
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>ODTÜ ÇEMÜT</h4>
+      <div class="footer-links">
+        <a href="/hakkimizda">Hakkımızda</a>
+        <a href="/ekip">Ekibimiz</a>
+        <a href="/etkinlikler">Etkinliklerimiz</a>
+        <a href="/bulten">Bülten</a>
+        <a href="/galeri" class="active">Galeri</a>
+        <a href="/iletisim">İletişim</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Komitelerimiz</h4>
+      <div class="footer-links">
+        <a href="/komite-finans">Finans Komitesi</a>
+        <a href="/komite-proje">Proje Komitesi</a>
+        <a href="/komite-etkinlik">Etkinlik Komitesi</a>
+        <a href="/komite-iletisim">İletişim Komitesi</a>
+        <a href="/komite-bulten">Bülten Komitesi</a>
+        <a href="/komite-sosyal">Sosyal İlişkiler</a>
+      </div>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4>İletişim</h4>
+      <p style="color: var(--text-main); font-weight: 500; margin-bottom: 2px;">E-Posta:</p>
+      <p style="margin-bottom: 15px;">cemut@metu.edu.tr</p>
+      <p style="color: var(--text-main); font-weight: 500; margin-bottom: 2px;">Adres:</p>
+      <p>ODTÜ Çevre Mühendisliği Bölümü<br>Zemin Kat, Çankaya / Ankara</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 ODTÜ Çevre Mühendisliği Topluluğu. Tüm hakları saklıdır.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+/* Galeri büyütme: fotoğrafa tıklayınca tam ekran, oklarla gezinme */
+(function () {
+  var kutu = document.getElementById('lightbox');
+  var gorsel = document.getElementById('lb-gorsel');
+  var fotolar = [].slice.call(document.querySelectorAll('.galeri-item img'));
+  var sira = 0;
+  if (!kutu || !fotolar.length) return;
+
+  function goster(i) {
+    sira = (i + fotolar.length) % fotolar.length;
+    gorsel.src = fotolar[sira].src;
+    gorsel.alt = fotolar[sira].alt || '';
+    kutu.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function kapat() {
+    kutu.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  fotolar.forEach(function (f, i) {
+    f.parentElement.addEventListener('click', function () { goster(i); });
+  });
+  document.getElementById('lb-kapat').addEventListener('click', kapat);
+  document.getElementById('lb-onceki').addEventListener('click', function (e) { e.stopPropagation(); goster(sira - 1); });
+  document.getElementById('lb-sonraki').addEventListener('click', function (e) { e.stopPropagation(); goster(sira + 1); });
+  kutu.addEventListener('click', function (e) { if (e.target === kutu) kapat(); });
+  document.addEventListener('keydown', function (e) {
+    if (kutu.hidden) return;
+    if (e.key === 'Escape') kapat();
+    if (e.key === 'ArrowLeft') goster(sira - 1);
+    if (e.key === 'ArrowRight') goster(sira + 1);
+  });
+})();
+</script>
+
+</body>
+</html>

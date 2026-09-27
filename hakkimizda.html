@@ -131,6 +131,25 @@
 @media (max-width: 900px) {
   .page-hero p { font-size: 15px; line-height: 1.7; }
 }
+
+/* ── EKİP FOTOĞRAFI ── */
+.takim-foto { margin-bottom: 70px; }
+.takim-foto img {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+  border-radius: 20px; display: block;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+}
+.takim-foto-not {
+  margin-top: 14px; text-align: center;
+  font-size: 13px; color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+@media (max-width: 900px) {
+  .takim-foto { margin-bottom: 44px; }
+  .takim-foto img { aspect-ratio: 4 / 3; border-radius: 14px; }
+  .takim-foto-not { margin-top: 10px; font-size: 12px; }
+}
 </style>
 </head>
 <body>
@@ -159,6 +178,7 @@
         </div>
       </div>
       <a href="/bulten">Bülten</a>
+      <a href="/galeri">Galeri</a>
       <a href="/hakkimizda" class="active">Hakkımızda</a>
       <a href="/ekip">Ekibimiz</a>
       <a href="/iletisim">İletişim</a>
@@ -171,6 +191,14 @@
     <h1>Biz Kimiz?</h1>
     <p>ODTÜ Çevre Mühendisliği Topluluğu (ÇEMÜT), çevre bilincini yaymayı, sürdürülebilirlik odaklı etkinlikler ve projelerle farkındalık yaratmayı amaçlayan vizyoner bir öğrenci ekosistemidir.</p>
   </div>
+</div>
+
+
+<!-- EKİP FOTOĞRAFI -->
+<div class="container takim-foto">
+  <img src="hakkimizda-foto.jpg" alt="ODTÜ ÇEMÜT ekibi, topluluk tanıtım günlerinde"
+       loading="lazy" decoding="async">
+  <p class="takim-foto-not">Topluluk Tanıtım Günleri, ODTÜ</p>
 </div>
 
 <section class="about-section">
@@ -247,6 +275,7 @@
         <a href="/ekip">Ekibimiz</a>
         <a href="/etkinlikler">Etkinliklerimiz</a>
         <a href="/bulten">Bülten</a>
+        <a href="/galeri">Galeri</a>
         <a href="/iletisim">İletişim</a>
       </div>
     </div>
