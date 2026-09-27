@@ -50,7 +50,9 @@ header {
   transition: var(--transition);
 }
 .brand:hover img { transform: scale(1.05); filter: drop-shadow(0 2px 16px rgba(187, 247, 208, 0.55)); }
-.nav-links { display: flex; gap: 40px; margin-left: auto; align-items: center; }
+/* margin-left:auto menüyü sağa yaslıyor; padding-right ile biraz daha içeri alındı.
+   Logo etkilenmez, o solda sabit kalır. */
+.nav-links { display: flex; gap: 40px; margin-left: auto; align-items: center; padding-right: 28px; }
 .nav-links > a, .dropdown > a {
   color: var(--text-main); font-size: 13px; text-transform: uppercase;
   font-weight: 600; letter-spacing: 0.1em; transition: var(--transition);
@@ -135,6 +137,7 @@ footer { padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); back
   .menu-toggle { display: block; }
 
   .nav-links {
+    padding-right: 0;
     position: absolute; top: var(--nav-height); left: -100%;
     width: 100%; height: calc(100vh - var(--nav-height));
     background: rgba(26, 34, 33, 0.98); backdrop-filter: blur(20px);
