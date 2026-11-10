@@ -26,7 +26,10 @@ body {
   overflow-x: hidden;
 }
 
-a, a:visited, a:hover, a:active { color: inherit; }
+/* Tarayıcının mavi/mor varsayılan link renklerini kapatır.
+   Sadece "a" seçicisi kullanılıyor: ":visited" eklenirse özgüllüğü artıyor ve
+   .yep-bilet gibi sınıfların kendi rengini eziyordu (beyaz butonda beyaz yazı). */
+a { color: inherit; }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
 

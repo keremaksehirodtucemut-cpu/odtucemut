@@ -31,8 +31,8 @@
    sloganın çizgiyi delmesi. Ortalanmış şablon dizilimden bilinçli kaçınıldı. */
 .hero {
   position: relative; overflow: hidden;
-  min-height: 100svh; display: flex; align-items: center;
-  padding: 140px 0 96px;
+  min-height: 86svh; display: flex; align-items: center;
+  padding: 96px 0 96px;
   background:
     radial-gradient(120% 90% at 12% 8%, #1a7a24 0%, transparent 58%),
     linear-gradient(158deg, #0d4a15 0%, #12691c 46%, #0b3811 100%);
@@ -133,9 +133,14 @@
 .yep-bant {
   position: relative;
   background: linear-gradient(140deg, #0f5a1c 0%, #137026 52%, #0c3d13 100%);
-  border-top: 1px solid rgba(187,247,208,0.25);
-  border-bottom: 1px solid rgba(187,247,208,0.25);
-  padding: 64px 0;
+  /* Band sayfanın en üstünde; sabit menünün altında kalmaması için üst boşluk */
+  padding: calc(var(--nav-height) + 54px) 0 64px;
+}
+/* Banttan kapağa yumuşak geçiş: sert yeşil-koyu sınırı kırılıyor */
+.yep-bant::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 120px;
+  background: linear-gradient(180deg, rgba(13,74,21,0) 0%, #0d4a15 100%);
+  pointer-events: none;
 }
 .yep-ic {
   display: grid; grid-template-columns: 320px 1fr;
@@ -208,12 +213,17 @@
   box-shadow: 0 14px 32px rgba(0,0,0,0.3);
   transition: all 0.28s cubic-bezier(.22,.75,.28,1);
 }
+a.yep-bilet, a.yep-bilet:visited, a.yep-bilet:hover, a.yep-bilet:active { color: #0b3311; }
 .yep-bilet span { transition: transform 0.28s ease; }
-.yep-bilet:hover { background: var(--accent); transform: translateY(-3px); }
+.yep-bilet:hover {
+  background: var(--accent); transform: translateY(-3px);
+  box-shadow: 0 0 0 4px rgba(187,247,208,0.25), 0 20px 42px rgba(0,0,0,0.38);
+}
 .yep-bilet:hover span { transform: translateX(5px); }
 
 @media (max-width: 900px) {
-  .yep-bant { padding: 44px 0; }
+  .yep-bant { padding: calc(var(--nav-height) + 30px) 0 44px; }
+  .yep-bant::after { height: 80px; }
   .yep-ic { grid-template-columns: 1fr; gap: 28px; }
   .yep-afis { max-width: 260px; margin: 0 auto; }
   .yep-metin { text-align: center; }
@@ -355,6 +365,55 @@
 </header>
  
 <!-- 1. HERO ALANI -->
+<!-- =====================================================================
+     YEP DUYURU BANDI — 6 Aralık 2026 etkinliğine özel.
+     Etkinlik geçtikten sonra bu <section> bloğunu ve altındaki
+     <script> etiketini silmek yeterli; CSS'i de "YEP DUYURU BANDI"
+     yorumundan itibaren kaldırabilirsin.
+     ===================================================================== -->
+<section class="yep-bant" id="yep">
+  <div class="container yep-ic">
+
+    <a href="https://www.biletimgo.com/etkinlik/yesil-perspektif-yep-33687"
+       target="_blank" rel="noopener" class="yep-afis" aria-label="Yeşil Perspektif biletleri">
+      <img src="yep-duyuru.jpg" alt="Yeşil Perspektif (YEP) — 6 Aralık, ODTÜ KKM" loading="lazy" decoding="async">
+    </a>
+
+    <div class="yep-metin">
+      <span class="yep-etiket">Biletler satışta</span>
+      <h2>Yeşil Perspektif</h2>
+      <p class="yep-alt">İlham veren konuşmaların yeni nesil hali.</p>
+
+      <div class="yep-bilgi">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          6 Aralık
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          ODTÜ KKM
+        </span>
+      </div>
+
+      <!-- Geri sayım -->
+      <div class="yep-sayac" id="yep-sayac" aria-live="polite">
+        <div class="yep-kutu"><strong data-sayac="gun">--</strong><span>gün</span></div>
+        <div class="yep-kutu"><strong data-sayac="saat">--</strong><span>saat</span></div>
+        <div class="yep-kutu"><strong data-sayac="dakika">--</strong><span>dakika</span></div>
+        <div class="yep-kutu"><strong data-sayac="saniye">--</strong><span>saniye</span></div>
+      </div>
+      <p class="yep-bugun" id="yep-bugun" hidden>Bugün! Görüşmek üzere.</p>
+
+      <a href="https://www.biletimgo.com/etkinlik/yesil-perspektif-yep-33687"
+         target="_blank" rel="noopener" class="yep-bilet">
+        Bilet Al
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
 <section class="hero">
   <!-- Marka bannerındaki akan kontur çizgileri -->
   <svg class="hero-lines" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -413,54 +472,6 @@
 <script>document.currentScript.previousElementSibling.classList.add('anim');</script>
  
 
-<!-- =====================================================================
-     YEP DUYURU BANDI — 6 Aralık 2026 etkinliğine özel.
-     Etkinlik geçtikten sonra bu <section> bloğunu ve altındaki
-     <script> etiketini silmek yeterli; CSS'i de "YEP DUYURU BANDI"
-     yorumundan itibaren kaldırabilirsin.
-     ===================================================================== -->
-<section class="yep-bant" id="yep">
-  <div class="container yep-ic">
-
-    <a href="https://www.biletimgo.com/etkinlik/yesil-perspektif-yep-33687"
-       target="_blank" rel="noopener" class="yep-afis" aria-label="Yeşil Perspektif biletleri">
-      <img src="yep-duyuru.jpg" alt="Yeşil Perspektif (YEP) — 6 Aralık, ODTÜ KKM" loading="lazy" decoding="async">
-    </a>
-
-    <div class="yep-metin">
-      <span class="yep-etiket">Biletler satışta</span>
-      <h2>Yeşil Perspektif</h2>
-      <p class="yep-alt">İlham veren konuşmaların yeni nesil hali.</p>
-
-      <div class="yep-bilgi">
-        <span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-          6 Aralık
-        </span>
-        <span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          ODTÜ KKM
-        </span>
-      </div>
-
-      <!-- Geri sayım -->
-      <div class="yep-sayac" id="yep-sayac" aria-live="polite">
-        <div class="yep-kutu"><strong data-sayac="gun">--</strong><span>gün</span></div>
-        <div class="yep-kutu"><strong data-sayac="saat">--</strong><span>saat</span></div>
-        <div class="yep-kutu"><strong data-sayac="dakika">--</strong><span>dakika</span></div>
-        <div class="yep-kutu"><strong data-sayac="saniye">--</strong><span>saniye</span></div>
-      </div>
-      <p class="yep-bugun" id="yep-bugun" hidden>Bugün! Görüşmek üzere.</p>
-
-      <a href="https://www.biletimgo.com/etkinlik/yesil-perspektif-yep-33687"
-         target="_blank" rel="noopener" class="yep-bilet">
-        Bilet Al
-        <span aria-hidden="true">→</span>
-      </a>
-    </div>
-
-  </div>
-</section>
 
 <!-- 2. ODTÜ ÇEMÜT BİZ KİMİZ -->
 <section id="hakkimizda" class="section-main container">
