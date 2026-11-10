@@ -236,6 +236,17 @@
 .event-basvuru:hover span { transform: translateX(4px); }
 .event-when .is-limit { color: var(--text-muted); font-weight: 500; }
 
+
+/* Fotoğraf kartları arasında duran afiş: kırpılmasın, kadraja sığsın */
+.afis-kart .event-card-img {
+  background: #0d1512;
+  display: flex; align-items: center; justify-content: center;
+}
+.afis-kart .event-card-img img { object-fit: contain; filter: none; }
+.afis-kart:hover .event-card-img img { transform: scale(1.03); }
+/* Ziyaret edilmiş link rengi butonun yazısını ezmesin */
+a.event-basvuru, a.event-basvuru:visited, a.event-basvuru:hover { color: #12241a; }
+
 /* ── FİLTRE GIZLEME ── */
 .event-item { transition: opacity 0.3s, transform 0.3s; }
 .event-item.hidden { display: none; }
@@ -337,6 +348,10 @@
             </span>
           </div>
           <p>Sürdürülebilirliğe farklı disiplinlerin penceresinden bakan konuşma serimiz. Alanında deneyimli konukları ODTÜ Kültür ve Kongre Merkezi'nde ağırlıyor, çevre meselelerini akademiden sahaya uzanan bir perspektifle ele alıyoruz.</p>
+          <a href="https://www.biletimgo.com/etkinlik/yesil-perspektif-yep-33687" target="_blank" rel="noopener" class="event-basvuru">
+            Bilet Al
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
 
@@ -400,10 +415,8 @@
         </div>
       </div>
 
-      
-    
       <!-- ECOQUEST -->
-      <div class="event-card poster-card event-item" data-category="sosyal">
+      <div class="event-card event-item afis-kart" data-category="sosyal">
         <div class="event-card-img">
           <img src="ecoquest.jpg" alt="EcoQuest etkinlik afişi" loading="lazy"
                onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=&quot;poster-fallback&quot;>Afiş yakında<br>eklenecek</div>');">
@@ -469,6 +482,9 @@
           <p>Katılımcıların kendi kişisel bakım ürünlerini doğal içeriklerle hazırladığı sürdürülebilir yaşam atölyesi. Bireysel düzeyde sürdürülebilir alışkanlıkları desteklemeyi ve doğaya duyarlı tüketim bilincini artırmayı hedefler.</p>
         </div>
       </div>
+
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
