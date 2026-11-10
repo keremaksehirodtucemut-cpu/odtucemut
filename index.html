@@ -245,12 +245,31 @@ a.yep-bilet, a.yep-bilet:visited, a.yep-bilet:hover, a.yep-bilet:active { color:
   width: clamp(92px, 9vw, 128px); height: auto; margin-bottom: 4px;
   filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
 }
-.marka .hero-rule { color: #fff; margin: 30px 0 30px; }
+.marka .hero-rule { color: #fff; margin: 34px 0 30px; align-self: stretch; }
+/* Yatay lockup: işaret solda, topluluk adı sağında */
+.marka-lockup { display: flex; align-items: center; gap: clamp(18px, 2.6vw, 38px); }
+.marka-ad {
+  display: flex; flex-direction: column;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(24px, 3.6vw, 46px);
+  font-weight: 800; line-height: 1.12;
+  letter-spacing: -0.025em; text-transform: uppercase; color: #fff;
+}
+.marka-ad .ad-sm {
+  font-weight: 400; letter-spacing: 0.16em;
+  font-size: 0.42em; margin-bottom: 0.34em; opacity: 0.88;
+}
+/* Slogan ortada dursun: dış çizgiler esner, kelime aralarındaki çizgiler sabit */
+.marka .hero-rule span + span::before { flex: 0 0 auto; width: 34px; min-width: 0; }
+
 .marka .hero-baglantilar { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
 
 @media (max-width: 900px) {
   .marka { padding: 54px 0 46px; }
-  .marka-logo { width: 84px; }
+  .marka-logo { width: 78px; }
+  .marka-lockup { gap: 15px; }
+  .marka-ad { font-size: 22px; }
+  .marka .hero-rule span + span::before { width: 18px; }
   .marka .hero-rule { margin: 24px 0 24px; font-size: 10px; letter-spacing: 0.13em; }
   .marka .hero-rule span { padding: 0 9px; }
 }
@@ -442,7 +461,15 @@ a.yep-bilet, a.yep-bilet:visited, a.yep-bilet:hover, a.yep-bilet:active { color:
 <!-- MARKA BLOĞU — kapak çözüldü, içeriği buraya taşındı -->
 <section class="marka">
   <div class="container marka-ic">
-    <img class="marka-logo" src="logo-mark.png" alt="ODTÜ Çevre Mühendisliği Topluluğu" loading="lazy" decoding="async">
+    <div class="marka-lockup">
+      <img class="marka-logo" src="logo-mark.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <h1 class="marka-ad">
+        <span class="ad-sm">ODTÜ</span>
+        <span>Çevre</span>
+        <span>Mühendisliği</span>
+        <span>Topluluğu</span>
+      </h1>
+    </div>
 
     <div class="hero-rule">
       <span>Innovate</span><span>Connect</span><span>Sustain</span>
